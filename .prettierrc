@@ -1,3 +1,10 @@
 {
+  "singleAttributePerLine": true,
+  "overrides": [
+    {
+      "files": [".*rc"],
+      "options": { "parser": "json" }
+    }
+  ],
   "plugins": ["prettier-plugin-tailwindcss"]
 }

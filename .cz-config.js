@@ -36,7 +36,7 @@ module.exports = {
   ],
 
   scopes: [
-    { name: "web-ui" },
+    { name: "ui" },
     { name: "android" },
     { name: "ios" },
     { name: "backend" },
