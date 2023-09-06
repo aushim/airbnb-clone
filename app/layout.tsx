@@ -4,8 +4,10 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
 import Navbar from "@/app/components/navbar/Navbar";
+import LoginModal from "@/app/components/modals/LoginModal";
 import RegisterModal from "@/app/components/modals/RegisterModal";
 import ToasterProvider from "@/app/providers/ToasterProvider";
+import getCurrentUser from "@/app/actions/getCurrentUser";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -14,17 +16,20 @@ export const metadata: Metadata = {
   description: "Airbnb clone built with Next.js",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={font.className}>
         <ToasterProvider />
+        <LoginModal />
         <RegisterModal />
-        <Navbar />
+        <Navbar currentUser={currentUser} />
         {children}
       </body>
     </html>
