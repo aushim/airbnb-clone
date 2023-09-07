@@ -77,6 +77,14 @@ export default async function getListings(params: IListingsParams) {
                   gte: endDate,
                 },
               },
+              {
+                startDate: {
+                  gte: startDate,
+                },
+                endDate: {
+                  lte: endDate,
+                },
+              },
             ],
           },
         },
