@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
 import Navbar from "@/app/components/navbar/Navbar";
+import SearchModal from "@/app/components/modals/SearchModal";
 import RentModal from "@/app/components/modals/RentModal";
 import LoginModal from "@/app/components/modals/LoginModal";
 import RegisterModal from "@/app/components/modals/RegisterModal";
@@ -28,6 +29,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ToasterProvider />
+        <SearchModal />
         <RentModal />
         <LoginModal />
         <RegisterModal />
