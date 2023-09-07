@@ -7,21 +7,21 @@ import { SerializedUser } from "@/app/types";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 
-interface IUseFavourite {
+interface IUseFavorite {
   listingId: string;
   currentUser?: SerializedUser | null;
 }
 
-const useFavourite = ({ listingId, currentUser }: IUseFavourite) => {
+const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
   const router = useRouter();
   const loginModal = useLoginModal();
 
-  const hasFavourited = useMemo(() => {
-    const list = currentUser?.favouriteIds || [];
+  const hasFavorited = useMemo(() => {
+    const list = currentUser?.favoriteIds || [];
     return list.includes(listingId);
   }, [currentUser, listingId]);
 
-  const toggleFavourite = useCallback(
+  const toggleFavorite = useCallback(
     async (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
 
@@ -32,10 +32,10 @@ const useFavourite = ({ listingId, currentUser }: IUseFavourite) => {
       try {
         let request;
 
-        if (hasFavourited) {
-          request = () => axios.delete(`/api/favourites/${listingId}`);
+        if (hasFavorited) {
+          request = () => axios.delete(`/api/favorites/${listingId}`);
         } else {
-          request = () => axios.post(`/api/favourites/${listingId}`);
+          request = () => axios.post(`/api/favorites/${listingId}`);
         }
 
         await request();
@@ -45,13 +45,13 @@ const useFavourite = ({ listingId, currentUser }: IUseFavourite) => {
         toast.error("Something went wrong");
       }
     },
-    [listingId, currentUser, hasFavourited, router, loginModal],
+    [listingId, currentUser, hasFavorited, router, loginModal],
   );
 
   return {
-    hasFavourited,
-    toggleFavourite,
+    hasFavorited,
+    toggleFavorite,
   };
 };
 
-export default useFavourite;
+export default useFavorite;

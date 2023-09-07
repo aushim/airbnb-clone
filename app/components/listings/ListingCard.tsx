@@ -1,8 +1,11 @@
 "use client";
 
 import useCountries from "@/app/hooks/useCountries";
-import { SerializedListing, SerializedUser } from "@/app/types";
-import { Reservation } from "@prisma/client";
+import {
+  SerializedReservation,
+  SerializedListing,
+  SerializedUser,
+} from "@/app/types";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { format } from "date-fns";
@@ -12,7 +15,7 @@ import Button from "@/app/components/Button";
 
 interface ListingCardProps {
   data: SerializedListing;
-  reservation?: Reservation;
+  reservation?: SerializedReservation;
   onAction?: (_: string) => void;
   disabled?: boolean;
   actionLabel?: string;
