@@ -7,8 +7,7 @@ import { useRouter } from "next/navigation";
 
 import { SerializedUser, SerializedReservation } from "@/app/types";
 import Container from "@/app/components/Container";
-import Heading from "@/app/components/Heading";
-import ListingCard from "@/app/components/listings/ListingCard";
+import ListingSection from "@/app/components/listings/ListingSection";
 
 interface ReservationsClientProps {
   reservations: SerializedReservation[];
@@ -42,26 +41,34 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
     [router],
   );
 
+  const today = new Date().toISOString();
+  const pastReservations = reservations.filter(
+    (reservation) => reservation.startDate <= today,
+  );
+  const upcomingReservations = reservations.filter(
+    (reservation) => reservation.startDate >= today,
+  );
+
   return (
     <Container>
-      <Heading
-        title="Reservations"
-        subtitle="Bookings on your properties"
+      <ListingSection
+        reservations={upcomingReservations}
+        title="Upcoming reservations"
+        subtitle="Future bookings on your properties"
+        currentUser={currentUser}
+        onAction={onCancel}
+        deletingId={deletingId}
+        actionLabel="Cancel guest reservation"
+        emptyMessage="No upcoming reservations"
       />
-      <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-        {reservations.map((reservation) => (
-          <ListingCard
-            key={reservation.id}
-            data={reservation.listing}
-            reservation={reservation}
-            actionId={reservation.id}
-            onAction={onCancel}
-            disabled={deletingId === reservation.id}
-            actionLabel="Cancel guest reservation"
-            currentUser={currentUser}
-          />
-        ))}
-      </div>
+      <hr className="my-10" />
+      <ListingSection
+        reservations={pastReservations}
+        title="Past reservations"
+        subtitle="Previous bookings on your properties"
+        currentUser={currentUser}
+        emptyMessage="No past reservations"
+      />
     </Container>
   );
 };
