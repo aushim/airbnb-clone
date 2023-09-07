@@ -11,9 +11,17 @@ const Logo = () => {
       <Image
         onClick={() => router.push("/")}
         alt="Logo"
+        height="40"
+        width="40"
+        className="h-auto w-auto shrink-0 cursor-pointer sm:hidden"
+        src="/images/logo-icon.png"
+      />
+      <Image
+        onClick={() => router.push("/")}
+        alt="Logo"
         height="100"
         width="100"
-        className="hidden h-auto w-auto cursor-pointer md:block"
+        className="hidden h-auto w-auto cursor-pointer sm:block"
         src="/images/logo.png"
       />
     </div>

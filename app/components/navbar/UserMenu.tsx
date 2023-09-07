@@ -43,7 +43,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       <div className="flex flex-row items-center gap-3">
         <div
           onClick={onRent}
-          className="hidden cursor-pointer rounded-full px-4 py-3 text-sm font-semibold transition hover:bg-neutral-100 md:block"
+          className="hidden cursor-pointer rounded-full px-4 py-3 text-sm font-semibold transition hover:bg-neutral-100 lg:block"
         >
           Airbnb your home
         </div>
@@ -63,6 +63,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className="flex cursor-pointer flex-col">
             {currentUser ? (
               <>
+                <div className="cursor-default px-4 py-3 text-lg font-bold">
+                  Guest
+                </div>
                 <MenuItem
                   onClick={() => router.push("/trips")}
                   label="My trips"
@@ -71,6 +74,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   onClick={() => router.push("/favorites")}
                   label="My favorites"
                 />
+                <hr />
+                <div className="cursor-default px-4 py-3 text-lg font-bold">
+                  Host
+                </div>
                 <MenuItem
                   onClick={() => router.push("/reservations")}
                   label="My reservations"
@@ -83,6 +90,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   onClick={() => rentModal.onOpen()}
                   label="Airbnb my home"
                 />
+                <hr />
                 <MenuItem
                   onClick={() => signOut()}
                   label="Logout"
