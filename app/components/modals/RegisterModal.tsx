@@ -60,17 +60,36 @@ const RegisterModal = () => {
         title="Welcome to Airbnb"
         subtitle="Create an account"
       />
+      <Button
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        onClick={() => signIn("google")}
+      />
+      <Button
+        outline
+        label="Continue with Github"
+        icon={AiFillGithub}
+        onClick={() => signIn("github")}
+      />
+      <div className="relative flex items-center py-5">
+        <div className="flex-grow border-t border-gray-400"></div>
+        <span className="mx-4 flex-shrink text-sm text-gray-400">
+          or with email and password
+        </span>
+        <div className="flex-grow border-t border-gray-400"></div>
+      </div>
       <Input
-        id="email"
-        label="Email"
+        id="name"
+        label="Name"
         disabled={isLoading}
         register={register}
         errors={errors}
         required
       />
       <Input
-        id="name"
-        label="Name"
+        id="email"
+        label="Email"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -90,19 +109,6 @@ const RegisterModal = () => {
 
   const footerContent = (
     <div className="mt-3 flex flex-col gap-4">
-      <hr />
-      <Button
-        outline
-        label="Continue with Google"
-        icon={FcGoogle}
-        onClick={() => signIn("google")}
-      />
-      <Button
-        outline
-        label="Continue with Github"
-        icon={AiFillGithub}
-        onClick={() => signIn("github")}
-      />
       <div className="mt-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
           <div>Already have an account?</div>

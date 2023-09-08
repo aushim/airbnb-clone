@@ -64,6 +64,25 @@ const LoginModal = () => {
         title="Welcome back"
         subtitle="Login to your account"
       />
+      <Button
+        outline
+        label="Login with Google"
+        icon={FcGoogle}
+        onClick={() => signIn("google")}
+      />
+      <Button
+        outline
+        label="Login with Github"
+        icon={AiFillGithub}
+        onClick={() => signIn("github")}
+      />
+      <div className="relative flex items-center py-5">
+        <div className="flex-grow border-t border-gray-400"></div>
+        <span className="mx-4 flex-shrink text-sm text-gray-400">
+          or with email and password
+        </span>
+        <div className="flex-grow border-t border-gray-400"></div>
+      </div>
       <Input
         id="email"
         label="Email"
@@ -86,19 +105,6 @@ const LoginModal = () => {
 
   const footerContent = (
     <div className="mt-3 flex flex-col gap-4">
-      <hr />
-      <Button
-        outline
-        label="Login with Google"
-        icon={FcGoogle}
-        onClick={() => signIn("google")}
-      />
-      <Button
-        outline
-        label="Login with Github"
-        icon={AiFillGithub}
-        onClick={() => signIn("github")}
-      />
       <div className="mt-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
           <div>First time using Airbnb?</div>
