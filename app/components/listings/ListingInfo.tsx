@@ -18,13 +18,11 @@ interface ListingInfoProps {
   guestCount: number;
   roomCount: number;
   bathroomCount: number;
-  category:
-    | {
-        label: string;
-        icon: IconType;
-        description: string;
-      }
-    | undefined;
+  categories: Array<{
+    label: string;
+    icon: IconType;
+    description: string;
+  }>;
   locationValue: string;
 }
 
@@ -34,7 +32,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   guestCount,
   roomCount,
   bathroomCount,
-  category,
+  categories,
   locationValue,
 }) => {
   const { getByValue } = useCountries();
@@ -43,29 +41,36 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
 
   return (
     <div className="col-span-4 flex flex-col gap-8">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col">
         <div className="flex flex-row items-center gap-2 text-xl font-semibold">
           <Avatar src={user?.image} />
           <div>&nbsp;Hosted by {user?.name?.split(" ")?.[0]}</div>
         </div>
         <br />
-        <div className="flex flex-row items-center gap-4 font-light text-neutral-500">
-          <div>{guestCount} guests</div>
-          <div>{roomCount} rooms</div>
-          <div>{bathroomCount} bathrooms</div>
+        <div className="flex flex-row items-center gap-2 font-medium text-neutral-500">
+          <div className="py-1">{guestCount} guests</div>
+          <div className="self-start">.</div>
+          <div className="py-1">{roomCount} rooms</div>
+          <div className="self-start">.</div>
+          <div className="py-1">{bathroomCount} bathrooms</div>
         </div>
       </div>
       <hr />
-      {category && (
-        <ListingCategory
-          icon={category.icon}
-          label={category.label}
-          description={category.description}
-        />
-      )}
+      {categories &&
+        categories.length > 0 &&
+        categories.map((category, index) => (
+          <ListingCategory
+            key={index}
+            icon={category.icon}
+            label={category.label}
+            description={category.description}
+          />
+        ))}
       <hr />
+      <div className="text-xl font-semibold">About this property</div>
       <div className="text-lg font-light text-neutral-500">{description}</div>
       <hr />
+      <div className="text-xl font-semibold">Where you&apos;ll be</div>
       <Map center={coordinates} />
     </div>
   );

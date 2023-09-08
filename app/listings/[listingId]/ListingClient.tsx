@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { eachDayOfInterval, differenceInCalendarDays } from "date-fns";
 import { Range } from "react-date-range";
 
-import { categories } from "@/app/components/navbar/Categories";
+import { categories as allCategories } from "@/app/components/navbar/Categories";
 import {
   SerializedReservation,
   SerializedListing,
@@ -99,9 +99,11 @@ const ListingClient: React.FC<ListingClientProps> = ({
     }
   }, [dateRange, listing.price]);
 
-  const category = useMemo(() => {
-    return categories.find((item) => item.label === listing.category);
-  }, [listing.category]);
+  const categories = useMemo(() => {
+    return allCategories.filter((item) =>
+      listing.categories.includes(item.label),
+    );
+  }, [listing.categories]);
 
   return (
     <Container>
@@ -117,7 +119,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
           <div className="mt-6 grid grid-cols-1 md:grid-cols-7 md:gap-10">
             <ListingInfo
               user={listing.user}
-              category={category}
+              categories={categories}
               description={listing.description}
               roomCount={listing.roomCount}
               guestCount={listing.guestCount}

@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "@/app/components/modals/Modal";
 import Heading from "@/app/components/Heading";
-import { categories } from "@/app/components/navbar/Categories";
+import { categories as allCategories } from "@/app/components/navbar/Categories";
 import CategoryInput from "@/app/components/inputs/CategoryInput";
 import CountrySelect from "@/app/components/inputs/CountrySelect";
 import Counter from "@/app/components/inputs/Counter";
@@ -42,7 +42,7 @@ const RentModal = () => {
     reset,
   } = useForm<FieldValues>({
     defaultValues: {
-      category: "",
+      categories: [] as string[],
       location: null,
       guestCount: 1,
       roomCount: 1,
@@ -54,7 +54,7 @@ const RentModal = () => {
     },
   });
 
-  const category = watch("category");
+  const categories = watch("categories");
   const location = watch("location");
   const guestCount = watch("guestCount");
   const roomCount = watch("roomCount");
@@ -127,20 +127,27 @@ const RentModal = () => {
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading
-        title="Which of these best describes your place?"
-        subtitle="Pick a category"
+        title="Which of these best describe your place?"
+        subtitle="Select all that apply"
       />
       <div className="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
-        {categories.map((item) => (
+        {allCategories.map((item) => (
           <div
             key={item.label}
             className="col-span-1"
           >
             <CategoryInput
               label={item.label}
-              selected={category === item.label}
+              selected={categories.includes(item.label)}
               icon={item.icon}
-              onClick={(category) => setCustomValue("category", category)}
+              onClick={(category) =>
+                !categories.includes(category)
+                  ? setCustomValue("categories", [...categories, category])
+                  : setCustomValue(
+                      "categories",
+                      categories.filter((c: any) => c !== category),
+                    )
+              }
             />
           </div>
         ))}

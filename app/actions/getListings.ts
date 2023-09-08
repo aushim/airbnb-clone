@@ -31,7 +31,9 @@ export default async function getListings(params: IListingsParams) {
     }
 
     if (category) {
-      query.category = category;
+      query.categories = {
+        has: category,
+      };
     }
 
     if (roomCount) {
