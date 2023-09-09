@@ -2,8 +2,7 @@ export const dynamic = "force-dynamic";
 
 import Container from "@/app/components/Container";
 import EmptyState from "@/app/components/EmptyState";
-import ListingCard from "@/app/components/listings/ListingCard";
-
+import ListingSection from "@/app/components/listings/ListingSection";
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
@@ -21,16 +20,11 @@ const Home = async ({ searchParams }: HomeProps) => {
 
   return (
     <Container>
-      <div className="grid grid-cols-1 gap-8 pt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-        {listings.map((listing) => {
-          return (
-            <ListingCard
-              currentUser={currentUser}
-              key={listing.id}
-              data={listing}
-            />
-          );
-        })}
+      <div className="pt-24">
+        <ListingSection
+          listings={listings}
+          currentUser={currentUser}
+        />
       </div>
     </Container>
   );

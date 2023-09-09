@@ -2,11 +2,11 @@
 
 import { toast } from "react-hot-toast";
 import { SerializedListing, SerializedUser } from "@/app/types";
+import PageContent from "@/app/components/PageContent";
 import Container from "@/app/components/Container";
-import Heading from "@/app/components/Heading";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
-import ListingCard from "@/app/components/listings/ListingCard";
+import ListingSection from "@/app/components/listings/ListingSection";
 
 interface PropertiesClientProps {
   listings: SerializedListing[];
@@ -42,25 +42,19 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
   );
 
   return (
-    <Container>
-      <Heading
-        title="Properties"
-        subtitle="Manage your properties"
-      />
-      <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-        {listings.map((listing) => (
-          <ListingCard
-            key={listing.id}
-            data={listing}
-            actionId={listing.id}
-            onAction={onDelete}
-            disabled={deletingId === listing.id}
-            actionLabel="Delete property"
-            currentUser={currentUser}
-          />
-        ))}
-      </div>
-    </Container>
+    <PageContent>
+      <Container>
+        <ListingSection
+          listings={listings}
+          title="Properties"
+          subtitle="Manage your properties"
+          currentUser={currentUser}
+          onAction={onDelete}
+          actionLabel="Delete property"
+          deletingId={deletingId}
+        />
+      </Container>
+    </PageContent>
   );
 };
 

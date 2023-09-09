@@ -5,6 +5,7 @@ import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
 import { SerializedUser, SerializedReservation } from "@/app/types";
+import PageContent from "@/app/components/PageContent";
 import Container from "@/app/components/Container";
 import ListingSection from "@/app/components/listings/ListingSection";
 
@@ -50,7 +51,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
     .reverse();
 
   return (
-    <div className="mt-8">
+    <PageContent>
       <Container>
         <ListingSection
           reservations={upcomingReservations}
@@ -62,16 +63,20 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
           actionLabel="Cancel guest reservation"
           emptyMessage="No upcoming reservations"
         />
-        <hr className="my-16" />
-        <ListingSection
-          reservations={pastReservations}
-          title="Past reservations"
-          subtitle="Previous bookings on your properties"
-          currentUser={currentUser}
-          emptyMessage="No past reservations"
-        />
+        {pastReservations.length > 0 && (
+          <>
+            <hr className="my-16" />
+            <ListingSection
+              reservations={pastReservations}
+              title="Past reservations"
+              subtitle="Previous bookings on your properties"
+              currentUser={currentUser}
+              emptyMessage="No past reservations"
+            />
+          </>
+        )}
       </Container>
-    </div>
+    </PageContent>
   );
 };
 

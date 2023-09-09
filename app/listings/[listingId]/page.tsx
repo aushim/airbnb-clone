@@ -2,6 +2,7 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 import { getListingById } from "@/app/actions/getListingById";
 import getReservations from "@/app/actions/getReservations";
 import EmptyState from "@/app/components/EmptyState";
+import PageContent from "@/app/components/PageContent";
 import ListingClient from "@/app/listings/[listingId]/ListingClient";
 
 interface IParams {
@@ -18,13 +19,13 @@ const ListingPage = async ({ params }: { params: IParams }) => {
   }
 
   return (
-    <div>
+    <PageContent>
       <ListingClient
         listing={listing}
         reservations={reservations}
         currentUser={currentUser}
       />
-    </div>
+    </PageContent>
   );
 };
 

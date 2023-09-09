@@ -6,6 +6,7 @@ import Container from "@/app/components/Container";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import ListingSection from "@/app/components/listings/ListingSection";
+import PageContent from "@/app/components/PageContent";
 
 interface TripsClientProps {
   reservations: SerializedReservation[];
@@ -49,7 +50,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
     .reverse();
 
   return (
-    <div className="mt-8">
+    <PageContent>
       <Container>
         <ListingSection
           reservations={upcomingReservations}
@@ -61,16 +62,20 @@ const TripsClient: React.FC<TripsClientProps> = ({
           actionLabel="Cancel reservation"
           emptyMessage="You have no upcoming trips"
         />
-        <hr className="my-16" />
-        <ListingSection
-          reservations={pastReservations}
-          title="Past trips"
-          subtitle="Where you've been"
-          currentUser={currentUser}
-          emptyMessage="You have no past trips"
-        />
+        {pastReservations.length > 0 && (
+          <>
+            <hr className="my-16" />
+            <ListingSection
+              reservations={pastReservations}
+              title="Past trips"
+              subtitle="Where you've been"
+              currentUser={currentUser}
+              emptyMessage="You have no past trips"
+            />
+          </>
+        )}
       </Container>
-    </div>
+    </PageContent>
   );
 };
 
