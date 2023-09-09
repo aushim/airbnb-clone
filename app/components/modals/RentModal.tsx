@@ -14,14 +14,16 @@ import { categories as allCategories } from "@/app/components/navbar/Categories"
 import CategoryInput from "@/app/components/inputs/CategoryInput";
 import CountrySelect from "@/app/components/inputs/CountrySelect";
 import Counter from "@/app/components/inputs/Counter";
-import ImageUpload from "@/app/components/inputs/ImageUpload";
+import ImageUpload, {
+  ImageUploadResult,
+} from "@/app/components/inputs/ImageUpload";
 import Input from "@/app/components/inputs/Input";
 
 enum STEPS {
   CATEGORY = 0,
   LOCATION = 1,
   INFO = 2,
-  IMAGES = 3,
+  PHOTOS = 3,
   DESCRIPTION = 4,
   PRICE = 5,
 }
@@ -47,7 +49,7 @@ const RentModal = () => {
       guestCount: 1,
       roomCount: 1,
       bathroomCount: 1,
-      imageSrc: "",
+      photos: [] as ImageUploadResult[],
       price: 1,
       title: "",
       description: "",
@@ -59,7 +61,7 @@ const RentModal = () => {
   const guestCount = watch("guestCount");
   const roomCount = watch("roomCount");
   const bathroomCount = watch("bathroomCount");
-  const imageSrc = watch("imageSrc");
+  const photos = watch("photos");
 
   const Map = useMemo(
     () =>
@@ -130,7 +132,7 @@ const RentModal = () => {
         title="Which of these best describe your place?"
         subtitle="Select all that apply"
       />
-      <div className="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
+      <div className="grid max-h-[50vh] grid-cols-3 gap-3 overflow-y-auto md:grid-cols-4">
         {allCategories.map((item) => (
           <div
             key={item.label}
@@ -202,16 +204,16 @@ const RentModal = () => {
     );
   }
 
-  if (step === STEPS.IMAGES) {
+  if (step === STEPS.PHOTOS) {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Add a photo of your place"
+          title="Add a few photos of your place"
           subtitle="Show guests what your place looks like!"
         />
         <ImageUpload
-          value={imageSrc}
-          onChange={(value) => setCustomValue("imageSrc", value)}
+          value={photos}
+          onChange={(val: ImageUploadResult[]) => setCustomValue("photos", val)}
         />
       </div>
     );

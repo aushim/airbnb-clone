@@ -96,11 +96,18 @@ export default async function getListings(params: IListingsParams) {
     const listings = await prisma.listing.findMany({
       where: query,
       orderBy: { createdAt: "desc" },
+      include: {
+        photos: true,
+      },
     });
 
     const serializedListings = listings.map((listing) => ({
       ...listing,
       createdAt: listing.createdAt.toISOString(),
+      photos: listing.photos.map((photo) => ({
+        ...photo,
+        createdAt: photo.createdAt.toISOString(),
+      })),
     }));
 
     return serializedListings;

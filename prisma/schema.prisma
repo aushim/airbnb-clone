@@ -49,7 +49,6 @@ model Listing {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   title         String
   description   String
-  imageSrc      String
   createdAt     DateTime @default(now())
   categories    String[]
   roomCount     Int
@@ -61,6 +60,17 @@ model Listing {
 
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
+  photos       Photo[]
+}
+
+model Photo {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  listingId String   @db.ObjectId
+  url       String
+  etag      String
+  createdAt DateTime @default(now())
+
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
 }
 
 model Reservation {

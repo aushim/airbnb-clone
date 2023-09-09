@@ -1,6 +1,11 @@
-import { Listing, Reservation, User } from "@prisma/client";
+import { Listing, Reservation, User, Photo } from "@prisma/client";
 
 export type SerializedListing = Omit<Listing, "createdAt"> & {
+  photos: SerializedPhoto[];
+  createdAt: string;
+};
+
+export type SerializedPhoto = Omit<Photo, "createdAt" | "listing"> & {
   createdAt: string;
 };
 

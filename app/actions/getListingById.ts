@@ -12,6 +12,7 @@ export async function getListingById(params: IParams) {
       where: { id: listingId },
       include: {
         user: true,
+        photos: true,
       },
     });
 
@@ -28,6 +29,10 @@ export async function getListingById(params: IParams) {
         updatedAt: listing.user.updatedAt.toISOString(),
         emailVerified: listing.user.emailVerified?.toISOString() || null,
       },
+      photos: listing.photos.map((photo) => ({
+        ...photo,
+        createdAt: photo.createdAt.toISOString(),
+      })),
     };
   } catch (error) {
     throw new Error();

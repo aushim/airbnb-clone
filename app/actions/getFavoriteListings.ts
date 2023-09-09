@@ -15,11 +15,18 @@ export default async function getFavoriteListings() {
           in: [...(currentUser.favoriteIds || [])],
         },
       },
+      include: {
+        photos: true,
+      },
     });
 
     const serializedFavorites = favorites.map((favorite) => ({
       ...favorite,
       createdAt: favorite.createdAt.toISOString(),
+      photos: favorite.photos.map((photo) => ({
+        ...photo,
+        createdAt: photo.createdAt.toISOString(),
+      })),
     }));
 
     return serializedFavorites;

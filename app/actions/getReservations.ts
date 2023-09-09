@@ -24,6 +24,8 @@ export default async function getReservations(params: IParams) {
       query.listing = { userId: authorId };
     }
 
+    if (!query) return [];
+
     const reservations = await prisma.reservation.findMany({
       where: query,
       include: {
@@ -32,16 +34,31 @@ export default async function getReservations(params: IParams) {
       orderBy: { createdAt: "desc" },
     });
 
-    const serializedReservations = reservations.map((reservation) => ({
-      ...reservation,
-      createdAt: reservation.createdAt.toISOString(),
-      startDate: reservation.startDate.toISOString(),
-      endDate: reservation.endDate.toISOString(),
-      listing: {
-        ...reservation.listing,
-        createdAt: reservation.listing.createdAt.toISOString(),
-      },
-    }));
+    const serializedReservations = await Promise.all(
+      reservations.map(async (reservation) => {
+        const listing = reservation.listing;
+        const photos = await prisma.photo.findMany({
+          where: {
+            listingId: listing.id,
+          },
+        });
+
+        return {
+          ...reservation,
+          createdAt: reservation.createdAt.toISOString(),
+          startDate: reservation.startDate.toISOString(),
+          endDate: reservation.endDate.toISOString(),
+          listing: {
+            ...reservation.listing,
+            createdAt: reservation.listing.createdAt.toISOString(),
+            photos: photos.map((photo) => ({
+              ...photo,
+              createdAt: photo.createdAt.toISOString(),
+            })),
+          },
+        };
+      }),
+    );
 
     return serializedReservations;
   } catch (error) {

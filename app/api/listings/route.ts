@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     description,
     price,
     location,
-    imageSrc,
+    photos,
     categories,
     roomCount,
     bathroomCount,
@@ -28,12 +28,20 @@ export async function POST(request: Request) {
       description,
       price: parseInt(price, 10),
       locationValue: location.value,
-      imageSrc,
+      photos: {
+        create: photos.map((photo: any) => ({
+          url: photo.url,
+          etag: photo.etag,
+        })),
+      },
       categories,
       roomCount,
       bathroomCount,
       guestCount,
       userId: currentUser.id,
+    },
+    include: {
+      photos: true,
     },
   });
 
