@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -64,13 +63,18 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
     setIsLoading(true);
 
-    axios
-      .post("/api/reservations", {
+    fetch("/api/reservations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
         listingId: listing?.id,
-      })
+      }),
+    })
       .then(() => {
         toast.success("Listing reserved");
         setDateRange(initialDateRange);

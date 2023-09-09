@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { toast } from "react-hot-toast";
 import { SerializedReservation, SerializedUser } from "@/app/types";
 import Container from "@/app/components/Container";
@@ -24,8 +23,9 @@ const TripsClient: React.FC<TripsClientProps> = ({
     (id: string) => {
       setDeletingId(id);
 
-      axios
-        .delete(`/api/reservations/${id}`)
+      fetch(`/api/reservations/${id}`, {
+        method: "DELETE",
+      })
         .then(() => {
           toast.success("Reservation cancelled");
           router.refresh();
@@ -44,31 +44,33 @@ const TripsClient: React.FC<TripsClientProps> = ({
   const pastReservations = reservations.filter(
     (reservation) => reservation.startDate <= today,
   );
-  const upcomingReservations = reservations.filter(
-    (reservation) => reservation.startDate >= today,
-  );
+  const upcomingReservations = reservations
+    .filter((reservation) => reservation.startDate >= today)
+    .reverse();
 
   return (
-    <Container>
-      <ListingSection
-        reservations={upcomingReservations}
-        title="Upcoming trips"
-        subtitle="Where you're going"
-        currentUser={currentUser}
-        onAction={onCancel}
-        deletingId={deletingId}
-        actionLabel="Cancel reservation"
-        emptyMessage="You have no upcoming trips"
-      />
-      <hr className="my-10" />
-      <ListingSection
-        reservations={pastReservations}
-        title="Past trips"
-        subtitle="Where you've been"
-        currentUser={currentUser}
-        emptyMessage="You have no past trips"
-      />
-    </Container>
+    <div className="mt-8">
+      <Container>
+        <ListingSection
+          reservations={upcomingReservations}
+          title="Upcoming trips"
+          subtitle="Where you're going"
+          currentUser={currentUser}
+          onAction={onCancel}
+          deletingId={deletingId}
+          actionLabel="Cancel reservation"
+          emptyMessage="You have no upcoming trips"
+        />
+        <hr className="my-16" />
+        <ListingSection
+          reservations={pastReservations}
+          title="Past trips"
+          subtitle="Where you've been"
+          currentUser={currentUser}
+          emptyMessage="You have no past trips"
+        />
+      </Container>
+    </div>
   );
 };
 

@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { toast } from "react-hot-toast";
 import { SerializedListing, SerializedUser } from "@/app/types";
 import Container from "@/app/components/Container";
@@ -25,8 +24,9 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
     (id: string) => {
       setDeletingId(id);
 
-      axios
-        .delete(`/api/listings/${id}`)
+      fetch(`/api/listings/${id}`, {
+        method: "DELETE",
+      })
         .then(() => {
           toast.success("Property listing deleted");
           router.refresh();

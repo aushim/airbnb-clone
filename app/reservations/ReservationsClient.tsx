@@ -1,7 +1,6 @@
 "use client";
 
 import { toast } from "react-hot-toast";
-import axios from "axios";
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
@@ -25,8 +24,9 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
     (id: string) => {
       setDeletingId(id);
 
-      axios
-        .delete(`/api/reservations/${id}`)
+      fetch(`/api/reservations/${id}`, {
+        method: "DELETE",
+      })
         .then(() => {
           toast.success("Reservation cancelled");
           router.refresh();
@@ -45,31 +45,33 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
   const pastReservations = reservations.filter(
     (reservation) => reservation.startDate <= today,
   );
-  const upcomingReservations = reservations.filter(
-    (reservation) => reservation.startDate >= today,
-  );
+  const upcomingReservations = reservations
+    .filter((reservation) => reservation.startDate >= today)
+    .reverse();
 
   return (
-    <Container>
-      <ListingSection
-        reservations={upcomingReservations}
-        title="Upcoming reservations"
-        subtitle="Future bookings on your properties"
-        currentUser={currentUser}
-        onAction={onCancel}
-        deletingId={deletingId}
-        actionLabel="Cancel guest reservation"
-        emptyMessage="No upcoming reservations"
-      />
-      <hr className="my-10" />
-      <ListingSection
-        reservations={pastReservations}
-        title="Past reservations"
-        subtitle="Previous bookings on your properties"
-        currentUser={currentUser}
-        emptyMessage="No past reservations"
-      />
-    </Container>
+    <div className="mt-8">
+      <Container>
+        <ListingSection
+          reservations={upcomingReservations}
+          title="Upcoming reservations"
+          subtitle="Future bookings on your properties"
+          currentUser={currentUser}
+          onAction={onCancel}
+          deletingId={deletingId}
+          actionLabel="Cancel guest reservation"
+          emptyMessage="No upcoming reservations"
+        />
+        <hr className="my-16" />
+        <ListingSection
+          reservations={pastReservations}
+          title="Past reservations"
+          subtitle="Previous bookings on your properties"
+          currentUser={currentUser}
+          emptyMessage="No past reservations"
+        />
+      </Container>
+    </div>
   );
 };
 

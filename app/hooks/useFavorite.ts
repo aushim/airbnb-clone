@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
@@ -33,9 +32,11 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
         let request;
 
         if (hasFavorited) {
-          request = () => axios.delete(`/api/favorites/${listingId}`);
+          request = () =>
+            fetch(`/api/favorites/${listingId}`, { method: "DELETE" });
         } else {
-          request = () => axios.post(`/api/favorites/${listingId}`);
+          request = () =>
+            fetch(`/api/favorites/${listingId}`, { method: "POST" });
         }
 
         await request();

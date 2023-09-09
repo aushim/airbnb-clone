@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useMemo, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -94,8 +93,13 @@ const RentModal = () => {
 
     setIsLoading(true);
 
-    axios
-      .post("/api/listings", data)
+    fetch("/api/listings", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then(() => {
         toast.success("Listing created");
         router.refresh();
