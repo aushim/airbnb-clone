@@ -45,7 +45,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           onClick={onRent}
           className="hidden cursor-pointer rounded-full px-4 py-3 text-sm font-semibold transition hover:bg-neutral-100 lg:block"
         >
-          Airbnb your home
+          List new property
         </div>
         <div
           onClick={toggleOpenMenu}
@@ -64,7 +64,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <>
                 <div className="cursor-default px-4 py-3 text-lg font-bold">
-                  Guest
+                  Hello {currentUser.name?.split(" ")[0]}!
+                </div>
+                <hr />
+                <div className="text-md cursor-default px-4 py-3 font-semibold text-rose-500">
+                  Browse as guest
                 </div>
                 <MenuItem
                   onClick={() => router.push("/trips")}
@@ -75,20 +79,20 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   label="My favorites"
                 />
                 <hr />
-                <div className="cursor-default px-4 py-3 text-lg font-bold">
-                  Host
+                <div className="text-md cursor-default px-4 py-3 font-semibold text-rose-500">
+                  Browse as host
                 </div>
-                <MenuItem
-                  onClick={() => router.push("/reservations")}
-                  label="My reservations"
-                />
                 <MenuItem
                   onClick={() => router.push("/properties")}
                   label="My properties"
                 />
                 <MenuItem
+                  onClick={() => router.push("/reservations")}
+                  label="My reservations"
+                />
+                <MenuItem
                   onClick={() => rentModal.onOpen()}
-                  label="Airbnb my home"
+                  label="List new property"
                 />
                 <hr />
                 <MenuItem

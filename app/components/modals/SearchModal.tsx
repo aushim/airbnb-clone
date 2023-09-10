@@ -9,9 +9,9 @@ import { Range } from "react-date-range";
 
 import Modal from "@/app/components/modals/Modal";
 import useSearchModal from "@/app/hooks/useSearchModal";
-import { CountrySelectValue } from "@/app/components/inputs/CountrySelect";
+import { LocationSelectValue } from "@/app/components/inputs/LocationSelect";
 import Heading from "@/app/components/Heading";
-import CountrySelect from "@/app/components/inputs/CountrySelect";
+import LocationSelect from "@/app/components/inputs/LocationSelect";
 import Calendar from "@/app/components/inputs/Calendar";
 import Counter from "@/app/components/inputs/Counter";
 
@@ -27,7 +27,7 @@ const SearchModal = () => {
   const searchModal = useSearchModal();
 
   const [step, setStep] = useState(STEPS.LOCATION);
-  const [location, setLocation] = useState<CountrySelectValue>();
+  const [location, setLocation] = useState<LocationSelectValue>();
   const [guestCount, setGuestCount] = useState(1);
   const [roomCount, setRoomCount] = useState(1);
   const [bathroomCount, setBathroomCount] = useState(1);
@@ -63,7 +63,7 @@ const SearchModal = () => {
 
     const updatedQuery: any = {
       ...currentQuery,
-      locationValue: location?.value,
+      location: location?.label,
       guestCount,
       roomCount,
       bathroomCount,
@@ -124,9 +124,9 @@ const SearchModal = () => {
         title="Where do you want to go?"
         subtitle="Find the perfect location"
       />
-      <CountrySelect
-        value={location}
-        onChange={(value) => setLocation(value as CountrySelectValue)}
+      <LocationSelect
+        location={location}
+        onChange={(value) => setLocation(value as LocationSelectValue)}
       />
       <hr />
       <Map center={location?.latlng} />

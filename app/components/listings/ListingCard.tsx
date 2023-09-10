@@ -1,6 +1,5 @@
 "use client";
 
-import useCountries from "@/app/hooks/useCountries";
 import {
   SerializedReservation,
   SerializedListing,
@@ -18,6 +17,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import useCountries from "@/app/hooks/useCountries";
 
 interface ListingCardProps {
   data: SerializedListing;
@@ -41,7 +41,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
   const router = useRouter();
   const { getByValue } = useCountries();
 
-  const location = getByValue(data.locationValue);
+  const country = useMemo(
+    () => getByValue(data.locationCountry),
+    [data.locationCountry, getByValue],
+  );
+  const place = data.locationLabel?.split(",")[0];
+  const location = `${place}${country?.label ? ", " + country.label : ""}`;
 
   const handleCancel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -107,9 +112,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
           onClick={() => router.push(`/listings/${data.id}`)}
           className="cursor-pointer"
         >
-          <div className="text-lg font-semibold">
-            {location?.region}, {location?.label}
-          </div>
+          <div className="text-md font-semibold">{location}</div>
           <div className="text-sm font-light text-neutral-500">
             {reservationDate ||
               (data.categories?.length > 0 && data.categories[0])}

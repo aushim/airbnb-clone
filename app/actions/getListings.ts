@@ -7,7 +7,7 @@ export interface IListingsParams {
   bathroomCount?: number;
   startDate?: string;
   endDate?: string;
-  locationValue?: string;
+  location?: string;
   category?: string;
 }
 
@@ -20,7 +20,7 @@ export default async function getListings(params: IListingsParams) {
       bathroomCount,
       startDate,
       endDate,
-      locationValue,
+      location,
       category,
     } = params;
 
@@ -54,8 +54,9 @@ export default async function getListings(params: IListingsParams) {
       };
     }
 
-    if (locationValue) {
-      query.locationValue = locationValue;
+    if (location) {
+      // TODO: Add a better location filter
+      query.locationLabel = location;
     }
 
     if (startDate && endDate) {

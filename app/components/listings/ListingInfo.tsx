@@ -3,7 +3,6 @@
 import { IconType } from "react-icons";
 import dynamic from "next/dynamic";
 
-import useCountries from "@/app/hooks/useCountries";
 import { SerializedUser } from "@/app/types";
 import Avatar from "@/app/components/Avatar";
 import ListingCategory from "@/app/components/listings/ListingCategory";
@@ -23,7 +22,7 @@ interface ListingInfoProps {
     icon: IconType;
     description: string;
   }>;
-  locationValue: string;
+  locationLatLng: number[];
 }
 
 const ListingInfo: React.FC<ListingInfoProps> = ({
@@ -33,12 +32,8 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   roomCount,
   bathroomCount,
   categories,
-  locationValue,
+  locationLatLng,
 }) => {
-  const { getByValue } = useCountries();
-
-  const coordinates = getByValue(locationValue)?.latlng;
-
   return (
     <div className="col-span-4 flex flex-col gap-8">
       <div className="flex flex-col">
@@ -71,7 +66,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
       <div className="text-lg font-light text-neutral-500">{description}</div>
       <hr />
       <div className="text-xl font-semibold">Where you&apos;ll be</div>
-      <Map center={coordinates} />
+      <Map center={locationLatLng} />
     </div>
   );
 };

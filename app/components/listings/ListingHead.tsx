@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import useCountries from "@/app/hooks/useCountries";
 import { SerializedUser, SerializedPhoto } from "@/app/types";
 import Heading from "@/app/components/Heading";
@@ -14,7 +15,8 @@ import "swiper/css/pagination";
 
 interface ListingHeadProps {
   title: string;
-  locationValue: string;
+  locationLabel: string;
+  locationCountry: string;
   photos?: SerializedPhoto[];
   id: string;
   currentUser?: SerializedUser | null;
@@ -22,20 +24,26 @@ interface ListingHeadProps {
 
 const ListingHead: React.FC<ListingHeadProps> = ({
   title,
-  locationValue,
+  locationLabel,
+  locationCountry,
   photos,
   id,
   currentUser,
 }) => {
   const { getByValue } = useCountries();
 
-  const location = getByValue(locationValue);
+  const country = useMemo(
+    () => getByValue(locationCountry),
+    [locationCountry, getByValue],
+  );
+  const place = locationLabel?.split(",")[0];
+  const location = `${place}${country?.label ? ", " + country.label : ""}`;
 
   return (
     <>
       <Heading
         title={title}
-        subtitle={`${location?.region}, ${location?.label}`}
+        subtitle={location}
       />
       {photos && photos.length > 0 && (
         <Swiper

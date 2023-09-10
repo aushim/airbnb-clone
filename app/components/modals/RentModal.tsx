@@ -11,7 +11,11 @@ import Modal from "@/app/components/modals/Modal";
 import Heading from "@/app/components/Heading";
 import { categories as allCategories } from "@/app/components/navbar/Categories";
 import CategoryInput from "@/app/components/inputs/CategoryInput";
-import CountrySelect from "@/app/components/inputs/CountrySelect";
+import LocationSelect, {
+  LocationSelectValue,
+} from "@/app/components/inputs/LocationSelect";
+import { Option } from "react-google-places-autocomplete/build/types";
+
 import Counter from "@/app/components/inputs/Counter";
 import ImageUpload, {
   ImageUploadResult,
@@ -44,7 +48,11 @@ const RentModal = () => {
   } = useForm<FieldValues>({
     defaultValues: {
       categories: [] as string[],
-      location: null,
+      locationLabel: "",
+      locationValue: null,
+      locationId: "",
+      locationLatLng: null,
+      locationCountry: "",
       guestCount: 1,
       roomCount: 1,
       bathroomCount: 1,
@@ -55,19 +63,23 @@ const RentModal = () => {
     },
   });
 
-  const categories = watch("categories");
-  const location = watch("location");
-  const guestCount = watch("guestCount");
-  const roomCount = watch("roomCount");
-  const bathroomCount = watch("bathroomCount");
-  const photos = watch("photos");
+  const categories: string[] = watch("categories");
+  const locationLabel: string = watch("locationLabel");
+  const locationValue: Option = watch("locationValue");
+  const locationId: string = watch("locationId");
+  const locationLatLng: number[] = watch("locationLatLng");
+  const locationCountry: string = watch("locationCountry");
+  const guestCount: number = watch("guestCount");
+  const roomCount: number = watch("roomCount");
+  const bathroomCount: number = watch("bathroomCount");
+  const photos: ImageUploadResult[] = watch("photos");
 
   const Map = useMemo(
     () =>
       dynamic(() => import("@/app/components/Map"), {
         ssr: false,
       }),
-    [location],
+    [locationLatLng],
   );
 
   const setCustomValue = (id: string, value: any) => {
@@ -168,11 +180,25 @@ const RentModal = () => {
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
-        <CountrySelect
-          onChange={(value) => setCustomValue("location", value)}
-          value={location}
+        <LocationSelect
+          location={
+            {
+              label: locationLabel,
+              value: locationValue,
+              latlng: locationLatLng,
+              countryCode: locationCountry,
+              locationId: locationId,
+            } as LocationSelectValue
+          }
+          onChange={(value: LocationSelectValue) => {
+            setCustomValue("locationLabel", value?.label);
+            setCustomValue("locationValue", value?.value);
+            setCustomValue("locationId", value?.locationId);
+            setCustomValue("locationLatLng", value?.latlng);
+            setCustomValue("locationCountry", value?.countryCode);
+          }}
         />
-        <Map center={location?.latlng} />
+        <Map center={locationLatLng} />
       </div>
     );
   }
@@ -273,7 +299,7 @@ const RentModal = () => {
 
   return (
     <Modal
-      title="Airbnb your home!"
+      title="List new property"
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
       onSubmit={handleSubmit(onSubmit)}

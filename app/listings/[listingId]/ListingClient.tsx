@@ -116,7 +116,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
           <ListingHead
             title={listing.title}
             photos={listing.photos}
-            locationValue={listing.locationValue}
+            locationLabel={listing.locationLabel}
+            locationCountry={listing.locationCountry}
             id={listing.id}
             currentUser={currentUser}
           />
@@ -128,7 +129,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
               roomCount={listing.roomCount}
               guestCount={listing.guestCount}
               bathroomCount={listing.bathroomCount}
-              locationValue={listing.locationValue}
+              locationLatLng={listing.locationLatLng}
             />
             <div className="order-first mb-10 md:order-last md:col-span-3">
               <ListingReservation

@@ -20,11 +20,11 @@ const PropertiesPage = async () => {
     userId: currentUser.id,
   });
 
-  if (listings.length === 0) {
+  if (!listings || listings.length === 0) {
     return (
       <EmptyState
         title="No properties found"
-        subtitle="Looks like you have no properties listed on Airbnb"
+        subtitle="Looks like you have no properties listed on the platform"
       />
     );
   }
