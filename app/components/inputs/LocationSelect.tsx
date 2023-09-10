@@ -54,8 +54,8 @@ const LocationSelect: React.FC<LocationSelectProps> = ({
               countryCode,
             });
           })
-          .catch((error) => {
-            console.error(error);
+          .catch(() => {
+            return;
           });
       }
     },
