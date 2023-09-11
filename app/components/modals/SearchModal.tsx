@@ -37,10 +37,10 @@ const SearchModal = () => {
     key: "selection",
   });
 
-  const Map = useMemo(
-    () => dynamic(() => import("@/app/components/Map"), { ssr: false }),
-    [location],
-  );
+  const Map = useMemo(() => {
+    location?.latlng;
+    return dynamic(() => import("@/app/components/Map"), { ssr: false });
+  }, [location?.latlng]);
 
   const onBack = useCallback(() => {
     setStep((prev) => prev - 1);

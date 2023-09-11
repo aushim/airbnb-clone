@@ -55,9 +55,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value = [] }) => {
     >
       {({ open }) => {
         return (
-          <div className="flex flex-col items-center justify-center gap-4 border-2 border-dashed border-neutral-300 p-4 text-neutral-600">
+          <div className="flex flex-col items-center justify-center gap-4 border-2 border-dashed border-neutral-300 p-2 text-neutral-600">
             {value?.length > 0 && (
-              <div className="relative flex w-full flex-row flex-wrap gap-1 pb-4 pl-1">
+              <div className="relative flex w-full flex-row flex-wrap gap-1 pb-4 pl-2">
                 {value.map((item, index) => (
                   <div
                     key={index}

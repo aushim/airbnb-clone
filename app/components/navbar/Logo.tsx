@@ -15,6 +15,7 @@ const Logo = () => {
         width="40"
         className="h-auto w-auto shrink-0 cursor-pointer sm:hidden"
         src="/images/logo-icon.png"
+        priority
       />
       <Image
         onClick={() => router.push("/")}
@@ -23,6 +24,7 @@ const Logo = () => {
         width="100"
         className="hidden h-auto w-auto cursor-pointer sm:block"
         src="/images/logo.png"
+        priority
       />
     </div>
   );

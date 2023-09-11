@@ -74,13 +74,12 @@ const RentModal = () => {
   const bathroomCount: number = watch("bathroomCount");
   const photos: ImageUploadResult[] = watch("photos");
 
-  const Map = useMemo(
-    () =>
-      dynamic(() => import("@/app/components/Map"), {
-        ssr: false,
-      }),
-    [locationLatLng],
-  );
+  const Map = useMemo(() => {
+    locationLatLng;
+    return dynamic(() => import("@/app/components/Map"), {
+      ssr: false,
+    });
+  }, [locationLatLng]);
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
