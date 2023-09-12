@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
-interface MenuState {
+interface UserMenuState {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 }
 
-const useMenu = create<MenuState>((set) => ({
+const useUserMenu = create<UserMenuState>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
 }));
 
-export default useMenu;
+export default useUserMenu;

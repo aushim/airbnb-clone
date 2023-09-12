@@ -6,7 +6,8 @@ import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 
 import Modal from "@/app/components/modals/Modal";
 import Heading from "@/app/components/Heading";
@@ -17,6 +18,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const LoginModal = () => {
   const router = useRouter();
+  const t = useTranslations("LoginModal");
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -42,13 +44,13 @@ const LoginModal = () => {
       setIsLoading(false);
 
       if (callback?.ok) {
-        toast.success("Logged in");
+        toast.success(t("successMessage"));
         router.refresh();
         loginModal.onClose();
       }
 
       if (callback?.error) {
-        toast.error("Something went wrong");
+        toast.error(t("errorMessage"));
       }
     });
   };
@@ -61,31 +63,31 @@ const LoginModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Welcome back"
-        subtitle="Login to your account"
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
       <Button
         outline
-        label="Login with Google"
+        label={t("googleLoginLabel")}
         icon={FcGoogle}
         onClick={() => signIn("google")}
       />
       <Button
         outline
-        label="Login with Github"
+        label={t("githubLoginLabel")}
         icon={AiFillGithub}
         onClick={() => signIn("github")}
       />
       <div className="relative flex items-center py-5">
         <div className="flex-grow border-t border-gray-400"></div>
         <span className="mx-4 flex-shrink text-sm text-gray-400">
-          or with email and password
+          {t("emailLoginLabel")}
         </span>
         <div className="flex-grow border-t border-gray-400"></div>
       </div>
       <Input
         id="email"
-        label="Email"
+        label={t("emailInputLabel")}
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -94,7 +96,7 @@ const LoginModal = () => {
       <Input
         id="password"
         type="password"
-        label="Password"
+        label={t("passwordInputLabel")}
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -107,12 +109,12 @@ const LoginModal = () => {
     <div className="mt-3 flex flex-col gap-4">
       <div className="mt-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
-          <div>First time?</div>
+          <div>{t("firstTimeUserLabel")}</div>
           <div
             onClick={toggle}
             className="cursor-pointer text-neutral-800 hover:underline"
           >
-            Create an account
+            {t("registerLabel")}
           </div>
         </div>
       </div>
@@ -123,8 +125,8 @@ const LoginModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={loginModal.isOpen}
-      title="Login"
-      actionLabel="Continue"
+      title={t("modalLabel")}
+      actionLabel={t("buttonLabel")}
       onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}

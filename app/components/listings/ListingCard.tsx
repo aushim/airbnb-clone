@@ -1,22 +1,23 @@
 "use client";
 
-import {
-  SerializedReservation,
-  SerializedListing,
-  SerializedUser,
-} from "@/app/types";
-import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
-import { format } from "date-fns";
 import Image from "next/image";
-import HeartButton from "@/app/components/HeartButton";
-import Button from "@/app/components/Button";
-
+import { useFormatter, useTranslations } from "next-intl";
+import { useRouter } from "next-intl/client";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
+import {
+  SerializedReservation,
+  SerializedListing,
+  SerializedUser,
+} from "@/app/types";
+import { CategoryLabel } from "@/app/components/navbar/Categories";
+import HeartButton from "@/app/components/HeartButton";
+import Button from "@/app/components/Button";
 import useCountries from "@/app/hooks/useCountries";
 
 interface ListingCardProps {
@@ -39,6 +40,9 @@ const ListingCard: React.FC<ListingCardProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
+  const formatter = useFormatter();
+  const t = useTranslations("ListingReservation");
+  const tCategories = useTranslations("Categories");
   const { getByValue } = useCountries();
 
   const country = useMemo(
@@ -73,8 +77,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
     const start = new Date(reservation.startDate);
     const end = new Date(reservation.endDate);
 
-    return `${format(start, "PP")} - ${format(end, "PP")}`;
-  }, [reservation]);
+    return `${formatter.dateTime(start, {
+      dateStyle: "medium",
+    })} - ${formatter.dateTime(end, {
+      dateStyle: "medium",
+    })}`;
+  }, [reservation, formatter]);
 
   return (
     <div className="group col-span-1">
@@ -116,11 +124,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
           <div className="text-md font-semibold">{location}</div>
           <div className="text-sm font-light text-neutral-500">
             {reservationDate ||
-              (data.categories?.length > 0 && data.categories[0])}
+              (data.categories?.length > 0 &&
+                tCategories(data.categories[0] as CategoryLabel))}
           </div>
           <div className="flex flex-row items-center gap-1 pt-2">
             <div className="font-semibold">$ {price}</div>
-            {!reservation && <div className="font-light">/ night</div>}
+            {!reservation && <div className="font-light"> {t("night")}</div>}
           </div>
         </div>
         {onAction && actionLabel && (

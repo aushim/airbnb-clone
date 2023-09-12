@@ -1,7 +1,8 @@
 "use client";
 
-import { SerializedListing, SerializedUser } from "@/app/types";
+import { useTranslations } from "next-intl";
 
+import { SerializedListing, SerializedUser } from "@/app/types";
 import PageContent from "@/app/components/PageContent";
 import Container from "@/app/components/Container";
 import ListingSection from "@/app/components/listings/ListingSection";
@@ -15,13 +16,15 @@ const FavoritesClient: React.FC<FavoritesClientProps> = ({
   listings,
   currentUser,
 }) => {
+  const t = useTranslations("FavoritesPage");
+
   return (
     <PageContent>
       <Container>
         <ListingSection
           listings={listings}
-          title="Favorites"
-          subtitle="List of places you've liked"
+          title={t("title")}
+          subtitle={t("subtitle")}
           currentUser={currentUser}
         />
       </Container>

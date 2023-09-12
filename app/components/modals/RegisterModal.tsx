@@ -6,6 +6,7 @@ import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { signIn } from "next-auth/react";
+import { useTranslations } from "next-intl";
 
 import Modal from "@/app/components/modals/Modal";
 import Heading from "@/app/components/Heading";
@@ -15,6 +16,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 
 const RegisterModal = () => {
+  const t = useTranslations("RegisterModal");
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -42,12 +44,12 @@ const RegisterModal = () => {
       },
     })
       .then(() => {
-        toast.success("Signed up successfully");
+        toast.success(t("successMessage"));
         registerModal.onClose();
         loginModal.onOpen();
       })
       .catch(() => {
-        toast.error("Something went wrong");
+        toast.error(t("errorMessage"));
       })
       .finally(() => {
         setIsLoading(false);
@@ -62,31 +64,31 @@ const RegisterModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Welcome"
-        subtitle="Create an account"
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
       <Button
         outline
-        label="Continue with Google"
+        label={t("googleSignupLabel")}
         icon={FcGoogle}
         onClick={() => signIn("google")}
       />
       <Button
         outline
-        label="Continue with Github"
+        label={t("githubSignupLabel")}
         icon={AiFillGithub}
         onClick={() => signIn("github")}
       />
       <div className="relative flex items-center py-5">
         <div className="flex-grow border-t border-gray-400"></div>
         <span className="mx-4 flex-shrink text-sm text-gray-400">
-          or with email and password
+          {t("emailSignupLabel")}
         </span>
         <div className="flex-grow border-t border-gray-400"></div>
       </div>
       <Input
         id="name"
-        label="Name"
+        label={t("nameInputLabel")}
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -94,7 +96,7 @@ const RegisterModal = () => {
       />
       <Input
         id="email"
-        label="Email"
+        label={t("emailInputLabel")}
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -103,7 +105,7 @@ const RegisterModal = () => {
       <Input
         id="password"
         type="password"
-        label="Password"
+        label={t("passwordInputLabel")}
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -116,12 +118,12 @@ const RegisterModal = () => {
     <div className="mt-3 flex flex-col gap-4">
       <div className="mt-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
-          <div>Already have an account?</div>
+          <div>{t("existingUserLabel")}</div>
           <div
             onClick={toggle}
             className="cursor-pointer text-neutral-800 hover:underline"
           >
-            Login
+            {t("loginLabel")}
           </div>
         </div>
       </div>
@@ -132,8 +134,8 @@ const RegisterModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}
-      title="Register"
-      actionLabel="Continue"
+      title={t("modalLabel")}
+      actionLabel={t("buttonLabel")}
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}

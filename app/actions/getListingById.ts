@@ -35,6 +35,6 @@ export async function getListingById(params: IParams) {
       })),
     };
   } catch (error) {
-    throw new Error();
+    return null;
   }
 }

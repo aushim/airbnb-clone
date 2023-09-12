@@ -6,6 +6,7 @@ import GooglePlacesAutocomplete, {
 } from "react-google-places-autocomplete";
 import { Option } from "react-google-places-autocomplete/build/types";
 import { SingleValue } from "react-select";
+import { useLocale } from "next-intl";
 
 export type LocationSelectValue = {
   label: string;
@@ -32,6 +33,8 @@ const LocationSelect: React.FC<LocationSelectProps> = ({
   location,
   onChange,
 }) => {
+  const locale = useLocale();
+
   const handleValueChange = useCallback(
     (locationValue: SingleValue<Option>) => {
       if (!locationValue) return;
@@ -66,6 +69,7 @@ const LocationSelect: React.FC<LocationSelectProps> = ({
     <div>
       <GooglePlacesAutocomplete
         apiKey={process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}
+        apiOptions={{ language: locale }}
         autocompletionRequest={{ types: ["(regions)"] }}
         debounce={500}
         selectProps={{

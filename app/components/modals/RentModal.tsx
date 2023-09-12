@@ -4,12 +4,16 @@ import dynamic from "next/dynamic";
 import toast from "react-hot-toast";
 import { useMemo, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "@/app/components/modals/Modal";
 import Heading from "@/app/components/Heading";
-import { categories as allCategories } from "@/app/components/navbar/Categories";
+import {
+  CategoryLabel,
+  categories as allCategories,
+} from "@/app/components/navbar/Categories";
 import CategoryInput from "@/app/components/inputs/CategoryInput";
 import LocationSelect, {
   LocationSelectValue,
@@ -33,6 +37,8 @@ enum STEPS {
 
 const RentModal = () => {
   const router = useRouter();
+  const t = useTranslations("RentModal");
+  const tCategories = useTranslations("Categories");
   const rentModal = useRentModal();
 
   const [step, setStep] = useState(STEPS.CATEGORY);
@@ -112,14 +118,14 @@ const RentModal = () => {
       },
     })
       .then(() => {
-        toast.success("Listing created");
+        toast.success(t("successMessage"));
         router.refresh();
         reset();
         setStep(STEPS.CATEGORY);
         rentModal.onClose();
       })
       .catch(() => {
-        toast.error("Something went wrong");
+        toast.error(t("errorMessage"));
       })
       .finally(() => {
         setIsLoading(false);
@@ -127,25 +133,25 @@ const RentModal = () => {
   };
   const actionLabel = useMemo(() => {
     if (step === STEPS.PRICE) {
-      return "Create";
+      return t("finalActionLabel");
     }
 
-    return "Next";
-  }, [step]);
+    return t("actionLabel");
+  }, [step, t]);
 
   const secondaryActionLabel = useMemo(() => {
     if (step === STEPS.CATEGORY) {
       return undefined;
     }
 
-    return "Back";
-  }, [step]);
+    return t("secondaryActionLabel");
+  }, [step, t]);
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading
-        title="Which of these best describe your place?"
-        subtitle="Select all that apply"
+        title={t("categoriesStepTitle")}
+        subtitle={t("categoriesStepSubtitle")}
       />
       <div className="grid max-h-[50vh] grid-cols-3 gap-3 overflow-y-auto md:grid-cols-4">
         {allCategories.map((item) => (
@@ -154,7 +160,7 @@ const RentModal = () => {
             className="col-span-1"
           >
             <CategoryInput
-              label={item.label}
+              label={tCategories(item.label as CategoryLabel)}
               selected={categories.includes(item.label)}
               icon={item.icon}
               onClick={(category) =>
@@ -176,8 +182,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Where is your place located?"
-          subtitle="Help guests find you!"
+          title={t("locationStepTitle")}
+          subtitle={t("locationStepSubtitle")}
         />
         <LocationSelect
           location={
@@ -206,26 +212,26 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Share some basics about your place"
-          subtitle="What amenities does your place have?"
+          title={t("infoStepTitle")}
+          subtitle={t("infoStepSubtitle")}
         />
         <Counter
-          title="Guests"
-          subtitle="How many guests do you allow?"
+          title={t("guestsInputTitle")}
+          subtitle={t("guestsInputSubtitle")}
           value={guestCount}
           onChange={(value) => setCustomValue("guestCount", value)}
         />
         <hr />
         <Counter
-          title="Rooms"
-          subtitle="How many rooms do you have?"
+          title={t("roomsInputTitle")}
+          subtitle={t("roomsInputSubtitle")}
           value={roomCount}
           onChange={(value) => setCustomValue("roomCount", value)}
         />
         <hr />
         <Counter
-          title="Bathooms"
-          subtitle="How many bathrooms do you have?"
+          title={t("bathroomsInputTitle")}
+          subtitle={t("bathroomsInputSubtitle")}
           value={bathroomCount}
           onChange={(value) => setCustomValue("bathroomCount", value)}
         />
@@ -237,8 +243,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Add a few photos of your place"
-          subtitle="Show guests what your place looks like!"
+          title={t("photosStepTitle")}
+          subtitle={t("photosStepSubtitle")}
         />
         <ImageUpload
           value={photos}
@@ -252,12 +258,12 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="How would you describe your place?"
-          subtitle="Short and sweet works best!"
+          title={t("descriptionStepTitle")}
+          subtitle={t("descriptionStepSubtitle")}
         />
         <Input
           id="title"
-          label="Title"
+          label={t("titleInputLabel")}
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -266,7 +272,7 @@ const RentModal = () => {
         <hr />
         <Input
           id="description"
-          label="Description"
+          label={t("descriptionInputLabel")}
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -280,12 +286,12 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Now, set your price"
-          subtitle="How much do you want to charge for each night?"
+          title={t("priceStepTitle")}
+          subtitle={t("priceStepSubtitle")}
         />
         <Input
           id="price"
-          label="Price"
+          label={t("priceInputLabel")}
           formatPrice
           disabled={isLoading}
           register={register}
@@ -298,7 +304,7 @@ const RentModal = () => {
 
   return (
     <Modal
-      title="List new property"
+      title={t("modalLabel")}
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
       onSubmit={handleSubmit(onSubmit)}

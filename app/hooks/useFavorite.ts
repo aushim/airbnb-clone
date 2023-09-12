@@ -1,4 +1,4 @@
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 

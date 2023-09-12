@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
 
 const Logo = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const Logo = () => {
         alt="Logo"
         height="40"
         width="40"
-        className="h-auto w-auto shrink-0 cursor-pointer sm:hidden"
+        className="cursor-pointer sm:hidden"
         src="/images/logo-icon.png"
         priority
       />

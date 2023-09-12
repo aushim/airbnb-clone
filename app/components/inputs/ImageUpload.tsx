@@ -2,6 +2,7 @@
 
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useCallback } from "react";
 import { TbPhotoPlus } from "react-icons/tb";
 import { SerializedPhoto } from "@/app/types";
@@ -20,6 +21,7 @@ interface ImageUploadProps {
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value = [] }) => {
+  const t = useTranslations("ImageUpload");
   const onRemove = useCallback(
     (url: string) => {
       onChange(value.filter((item) => item.url !== url));
@@ -83,7 +85,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value = [] }) => {
             >
               <TbPhotoPlus size={50} />
               <div className="text-lg font-semibold">
-                Click to upload {value?.length > 0 ? "more" : ""}
+                {t("uploadPrompt", { count: value?.length || 0 })}
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import EmptyState from "@/app/components/EmptyState";
 
 interface ErrorStateProps {
@@ -8,14 +9,16 @@ interface ErrorStateProps {
 }
 
 const ErrorState: React.FC<ErrorStateProps> = ({ error }) => {
+  const t = useTranslations("Error");
+
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
     <EmptyState
-      title="Uh oh"
-      subtitle="Something went wrong!"
+      title={t("title")}
+      subtitle={t("subtitle")}
     />
   );
 };

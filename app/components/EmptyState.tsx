@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 
 import Heading from "@/app/components/Heading";
 import Button from "@/app/components/Button";
@@ -12,11 +13,21 @@ interface EmptyStateProps {
 }
 
 const EmptyState: React.FC<EmptyStateProps> = ({
-  title = "No exact matches",
-  subtitle = "Try changing or removing some of your filters",
+  title,
+  subtitle,
   showReset,
 }) => {
   const router = useRouter();
+  const t = useTranslations("EmptyState");
+
+  if (!title) {
+    title = t("defaultTitle");
+  }
+
+  if (!subtitle) {
+    subtitle = t("defaultSubtitle");
+  }
+
   return (
     <div className="flex h-[60vh] flex-col items-center justify-center gap-2">
       <Heading
@@ -28,7 +39,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         {showReset && (
           <Button
             outline
-            label="Remove all filters"
+            label={t("resetButtonLabel")}
             onClick={() => router.push("/")}
           ></Button>
         )}

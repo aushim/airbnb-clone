@@ -62,6 +62,6 @@ export default async function getReservations(params: IParams) {
 
     return serializedReservations;
   } catch (error) {
-    throw new Error();
+    return [];
   }
 }

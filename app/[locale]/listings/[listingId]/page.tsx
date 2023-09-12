@@ -1,13 +1,26 @@
+import { useTranslations } from "next-intl";
+
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { getListingById } from "@/app/actions/getListingById";
 import getReservations from "@/app/actions/getReservations";
 import EmptyState from "@/app/components/EmptyState";
 import PageContent from "@/app/components/PageContent";
-import ListingClient from "@/app/listings/[listingId]/ListingClient";
+import ListingClient from "@/app/[locale]/listings/[listingId]/ListingClient";
 
 interface IParams {
   listingId?: string;
 }
+
+const EmptyListingPage = () => {
+  const t = useTranslations("ListingPage");
+
+  return (
+    <EmptyState
+      title={t("emptyTitle")}
+      subtitle={t("emptySubtitle")}
+    />
+  );
+};
 
 const ListingPage = async ({ params }: { params: IParams }) => {
   const listing = await getListingById(params);
@@ -15,7 +28,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
   const currentUser = await getCurrentUser();
 
   if (!listing) {
-    return <EmptyState />;
+    return <EmptyListingPage />;
   }
 
   return (

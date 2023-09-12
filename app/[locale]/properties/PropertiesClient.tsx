@@ -4,7 +4,8 @@ import { toast } from "react-hot-toast";
 import { SerializedListing, SerializedUser } from "@/app/types";
 import PageContent from "@/app/components/PageContent";
 import Container from "@/app/components/Container";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 import ListingSection from "@/app/components/listings/ListingSection";
 
@@ -18,6 +19,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
+  const t = useTranslations("PropertiesPage");
   const [deletingId, setDeletingId] = useState("");
 
   const onDelete = useCallback(
@@ -28,17 +30,17 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
         method: "DELETE",
       })
         .then(() => {
-          toast.success("Property listing deleted");
+          toast.success(t("successMessage"));
           router.refresh();
         })
         .catch(() => {
-          toast.error("Something went wrong");
+          toast.error(t("errorMessage"));
         })
         .finally(() => {
           setDeletingId("");
         });
     },
-    [router],
+    [router, t],
   );
 
   return (
@@ -46,11 +48,11 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
       <Container>
         <ListingSection
           listings={listings}
-          title="Properties"
-          subtitle="Manage your properties"
+          title={t("title")}
+          subtitle={t("subtitle")}
           currentUser={currentUser}
           onAction={onDelete}
-          actionLabel="Delete property"
+          actionLabel={t("deleteLabel")}
           deletingId={deletingId}
         />
       </Container>

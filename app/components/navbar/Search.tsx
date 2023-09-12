@@ -2,6 +2,7 @@
 
 import { BiSearch } from "react-icons/bi";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 import useCountries from "@/app/hooks/useCountries";
 import useSearchModal from "@/app/hooks/useSearchModal";
@@ -9,6 +10,7 @@ import { useMemo } from "react";
 import { differenceInDays } from "date-fns";
 
 const Search = () => {
+  const t = useTranslations("Search");
   const searchModal = useSearchModal();
   const params = useSearchParams();
   const { getByValue } = useCountries();
@@ -23,8 +25,8 @@ const Search = () => {
       return getByValue(locationValue as string)?.label;
     }
 
-    return "Anywhere";
-  }, [locationValue, getByValue]);
+    return t("defaultLocationLabel");
+  }, [locationValue, getByValue, t]);
 
   const durationLabel = useMemo(() => {
     if (startDate && endDate) {
@@ -32,23 +34,20 @@ const Search = () => {
       const end = new Date(endDate as string);
       let diff = differenceInDays(end, start);
 
-      if (diff === 0) {
-        diff = 1;
-      }
-
-      return `${diff} day${diff > 1 ? "s" : ""}`;
+      return t("durationLabel", { count: diff });
     }
 
-    return "Any week";
-  }, [startDate, endDate]);
+    return t("defaultDurationLabel");
+  }, [startDate, endDate, t]);
 
   const guestLabel = useMemo(() => {
     if (guestCount) {
-      return `${guestCount} guest${parseInt(guestCount) > 1 ? "s" : ""}`;
+      const intGuestCount = parseInt(guestCount);
+      return t("guestLabel", { count: intGuestCount });
     }
 
-    return "Add guests";
-  }, [guestCount]);
+    return t("defaultGuestLabel");
+  }, [guestCount, t]);
 
   return (
     <div

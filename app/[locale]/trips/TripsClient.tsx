@@ -3,7 +3,8 @@
 import { toast } from "react-hot-toast";
 import { SerializedReservation, SerializedUser } from "@/app/types";
 import Container from "@/app/components/Container";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 import ListingSection from "@/app/components/listings/ListingSection";
 import PageContent from "@/app/components/PageContent";
@@ -18,6 +19,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
+  const t = useTranslations("TripsPage");
   const [deletingId, setDeletingId] = useState("");
 
   const onCancel = useCallback(
@@ -28,17 +30,17 @@ const TripsClient: React.FC<TripsClientProps> = ({
         method: "DELETE",
       })
         .then(() => {
-          toast.success("Reservation cancelled");
+          toast.success(t("successMessage"));
           router.refresh();
         })
         .catch(() => {
-          toast.error("Something went wrong");
+          toast.error(t("errorMessage"));
         })
         .finally(() => {
           setDeletingId("");
         });
     },
-    [router],
+    [router, t],
   );
 
   const today = new Date().toISOString();
@@ -54,23 +56,23 @@ const TripsClient: React.FC<TripsClientProps> = ({
       <Container>
         <ListingSection
           reservations={upcomingReservations}
-          title="Upcoming trips"
-          subtitle="Where you're going"
+          title={t("title")}
+          subtitle={t("subtitle")}
           currentUser={currentUser}
           onAction={onCancel}
           deletingId={deletingId}
-          actionLabel="Cancel reservation"
-          emptyMessage="You have no upcoming trips"
+          actionLabel={t("cancelLabel")}
+          emptyMessage={t("emptyMessage")}
         />
         {pastReservations.length > 0 && (
           <>
             <hr className="my-16" />
             <ListingSection
               reservations={pastReservations}
-              title="Past trips"
-              subtitle="Where you've been"
+              title={t("pastTitle")}
+              subtitle={t("pastSubtitle")}
               currentUser={currentUser}
-              emptyMessage="You have no past trips"
+              emptyMessage={t("pastEmptyMessage")}
             />
           </>
         )}

@@ -3,7 +3,7 @@
 import Container from "@/app/components/Container";
 import Logo from "@/app/components/navbar/Logo";
 import Search from "@/app/components/navbar/Search";
-import UserMenu from "@/app/components/navbar/UserMenu";
+import Menu from "@/app/components/navbar/Menu";
 import Categories from "@/app/components/navbar/Categories";
 import { SerializedUser } from "@/app/types";
 
@@ -19,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           <div className="flex flex-row items-center justify-between gap-3 md:gap-1">
             <Logo />
             <Search />
-            <UserMenu currentUser={currentUser} />
+            <Menu currentUser={currentUser} />
           </div>
         </Container>
       </div>

@@ -2,7 +2,8 @@
 
 import { toast } from "react-hot-toast";
 import { useState, useMemo, useCallback, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 import { eachDayOfInterval, differenceInCalendarDays } from "date-fns";
 import { Range } from "react-date-range";
 
@@ -35,6 +36,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
   listing,
   currentUser,
 }) => {
+  const t = useTranslations("ListingReservation");
   const loginModal = useLoginModal();
   const router = useRouter();
 
@@ -76,17 +78,17 @@ const ListingClient: React.FC<ListingClientProps> = ({
       }),
     })
       .then(() => {
-        toast.success("Listing reserved");
+        toast.success(t("successMessage"));
         setDateRange(initialDateRange);
         router.push("/trips");
       })
       .catch(() => {
-        toast.error("Something went wrong");
+        toast.error(t("errorMessage"));
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal]);
+  }, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal, t]);
 
   useEffect(() => {
     if (dateRange.startDate && dateRange.endDate) {
@@ -121,7 +123,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
             id={listing.id}
             currentUser={currentUser}
           />
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-7 md:gap-10">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-7 md:gap-20">
             <ListingInfo
               user={listing.user}
               categories={categories}

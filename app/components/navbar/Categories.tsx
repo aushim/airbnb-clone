@@ -15,11 +15,38 @@ import {
 import { BsSnow } from "react-icons/bs";
 import { FaSkiing } from "react-icons/fa";
 import { MdOutlineVilla } from "react-icons/md";
+import { useTranslations } from "next-intl";
 
+import Container from "@/app/components/Container";
 import CategoryBox from "@/app/components/navbar/CategoryBox";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next-intl/client";
+import { useSearchParams } from "next/navigation";
+import { IconType } from "react-icons";
 
-export const categories = [
+export type CategoryLabel =
+  | "Beach"
+  | "Windmills"
+  | "Modern"
+  | "Countryside"
+  | "Pools"
+  | "Islands"
+  | "Lake"
+  | "Skiing"
+  | "Castles"
+  | "Camping"
+  | "Arctic"
+  | "Cave"
+  | "Desert"
+  | "Barns"
+  | "Lux";
+
+export type Category = {
+  label: CategoryLabel;
+  icon: IconType;
+  description: string;
+};
+
+export const categories: Category[] = [
   {
     label: "Beach",
     icon: TbBeach,
@@ -98,6 +125,7 @@ export const categories = [
 ];
 
 const Categories = () => {
+  const t = useTranslations("Categories");
   const params = useSearchParams();
   const category = params?.get("category");
   const pathName = usePathname();
@@ -109,16 +137,18 @@ const Categories = () => {
   }
 
   return (
-    <div className="flex flex-row items-center justify-between overflow-x-auto px-1 pt-4">
-      {categories.map((item) => (
-        <CategoryBox
-          key={item.label}
-          label={item.label}
-          selected={category === item.label}
-          icon={item.icon}
-        />
-      ))}
-    </div>
+    <Container>
+      <div className="flex flex-row items-center justify-between overflow-x-auto pt-4">
+        {categories.map((item) => (
+          <CategoryBox
+            key={item.label}
+            label={t(item.label as CategoryLabel)}
+            selected={category === item.label}
+            icon={item.icon}
+          />
+        ))}
+      </div>
+    </Container>
   );
 };
 

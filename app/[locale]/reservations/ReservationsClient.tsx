@@ -2,7 +2,8 @@
 
 import { toast } from "react-hot-toast";
 import { useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 
 import { SerializedUser, SerializedReservation } from "@/app/types";
 import PageContent from "@/app/components/PageContent";
@@ -19,6 +20,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
+  const t = useTranslations("ReservationsPage");
   const [deletingId, setDeletingId] = useState("");
 
   const onCancel = useCallback(
@@ -29,17 +31,17 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
         method: "DELETE",
       })
         .then(() => {
-          toast.success("Reservation cancelled");
+          toast.success(t("successMessage"));
           router.refresh();
         })
         .catch(() => {
-          toast.error("Something went wrong");
+          toast.error(t("errorMessage"));
         })
         .finally(() => {
           setDeletingId("");
         });
     },
-    [router],
+    [router, t],
   );
 
   const today = new Date().toISOString();
@@ -55,23 +57,23 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
       <Container>
         <ListingSection
           reservations={upcomingReservations}
-          title="Upcoming reservations"
-          subtitle="Future bookings on your properties"
+          title={t("title")}
+          subtitle={t("subtitle")}
           currentUser={currentUser}
           onAction={onCancel}
           deletingId={deletingId}
-          actionLabel="Cancel guest reservation"
-          emptyMessage="No upcoming reservations"
+          actionLabel={t("cancelLabel")}
+          emptyMessage={t("emptyMessage")}
         />
         {pastReservations.length > 0 && (
           <>
             <hr className="my-16" />
             <ListingSection
               reservations={pastReservations}
-              title="Past reservations"
-              subtitle="Previous bookings on your properties"
+              title={t("pastTitle")}
+              subtitle={t("pastSubtitle")}
               currentUser={currentUser}
-              emptyMessage="No past reservations"
+              emptyMessage={t("pastEmptyMessage")}
             />
           </>
         )}
