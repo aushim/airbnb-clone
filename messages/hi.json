@@ -213,5 +213,8 @@
   "Error": {
     "title": "उह ओह",
     "subtitle": "कुछ गलत हो गया!"
+  },
+  "FavoriteButton": {
+    "errorMessage": "Something went wrong"
   }
 }
