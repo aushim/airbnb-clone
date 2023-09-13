@@ -112,6 +112,11 @@
   "ImageUpload": {
     "uploadPrompt": "Click to upload{count, plural, =0 {} other { more}}"
   },
+  "LocationSelect": {
+    "placeholderMessage": "Where are you going",
+    "loadingMessage": "Loading...",
+    "noOptionsMessage": "Type for suggestions..."
+  },
   "LoginModal": {
     "modalLabel": "Login",
     "successMessage": "Logged in",

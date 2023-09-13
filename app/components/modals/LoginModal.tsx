@@ -80,7 +80,7 @@ const LoginModal = () => {
       />
       <div className="relative flex items-center py-5">
         <div className="flex-grow border-t border-gray-400"></div>
-        <span className="mx-4 flex-shrink text-sm text-gray-400">
+        <span className="flex-shrink px-4 text-sm text-gray-400">
           {t("emailLoginLabel")}
         </span>
         <div className="flex-grow border-t border-gray-400"></div>
@@ -106,8 +106,8 @@ const LoginModal = () => {
   );
 
   const footerContent = (
-    <div className="mt-3 flex flex-col gap-4">
-      <div className="mt-4 text-center font-light text-neutral-500">
+    <div className="flex flex-col gap-4 pt-3">
+      <div className="pt-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
           <div>{t("firstTimeUserLabel")}</div>
           <div

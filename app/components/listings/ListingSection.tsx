@@ -32,7 +32,7 @@ const ListingSection: React.FC<ListingSectionProps> = ({
   return (
     <>
       {title && (
-        <div className="mb-8">
+        <div className="pb-8">
           <Heading
             title={title}
             subtitle={subtitle}

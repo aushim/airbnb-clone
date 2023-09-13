@@ -6,7 +6,7 @@ import GooglePlacesAutocomplete, {
 } from "react-google-places-autocomplete";
 import { Option } from "react-google-places-autocomplete/build/types";
 import { SingleValue } from "react-select";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export type LocationSelectValue = {
   label: string;
@@ -19,7 +19,7 @@ export type LocationSelectValue = {
 const LocationOptionTextBox = ({ text }: { text: string }) => (
   <div className="flex flex-row items-center gap-3">
     <div>
-      <span className="ml-1 text-neutral-500">{text}</span>
+      <span className="pl-1 text-neutral-500">{text}</span>
     </div>
   </div>
 );
@@ -34,6 +34,7 @@ const LocationSelect: React.FC<LocationSelectProps> = ({
   onChange,
 }) => {
   const locale = useLocale();
+  const t = useTranslations("LocationSelect");
 
   const handleValueChange = useCallback(
     (locationValue: SingleValue<Option>) => {
@@ -76,13 +77,15 @@ const LocationSelect: React.FC<LocationSelectProps> = ({
           value: location?.value,
           autoFocus: true,
           noOptionsMessage: () => (
-            <LocationOptionTextBox text="Type for suggestions..." />
+            <LocationOptionTextBox text={t("noOptionsMessage")} />
           ),
-          loadingMessage: () => <LocationOptionTextBox text="Loading..." />,
+          loadingMessage: () => (
+            <LocationOptionTextBox text={t("loadingMessage")} />
+          ),
           formatOptionLabel: (option) => (
             <LocationOptionTextBox text={option.label} />
           ),
-          placeholder: "Where are you going?",
+          placeholder: t("placeholderMessage"),
           components: {
             DropdownIndicator: () => null,
             IndicatorSeparator: () => null,

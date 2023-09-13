@@ -5,7 +5,7 @@ interface PageContentProps {
 }
 
 const PageContent: React.FC<PageContentProps> = ({ children }) => {
-  return <div className="mt-8">{children}</div>;
+  return <div className="pt-8">{children}</div>;
 };
 
 export default PageContent;

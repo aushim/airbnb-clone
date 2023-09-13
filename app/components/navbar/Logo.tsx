@@ -8,24 +8,25 @@ const Logo = () => {
 
   return (
     <div>
-      <Image
-        onClick={() => router.push("/")}
-        alt="Logo"
-        height="40"
-        width="40"
-        className="cursor-pointer sm:hidden"
-        src="/images/logo-icon.png"
-        priority
-      />
-      <Image
-        onClick={() => router.push("/")}
-        alt="Logo"
-        height="100"
-        width="100"
-        className="hidden h-auto w-auto cursor-pointer sm:block"
-        src="/images/logo.png"
-        priority
-      />
+      <div className="relative h-10 w-10 cursor-pointer sm:hidden">
+        <Image
+          onClick={() => router.push("/")}
+          alt="Logo"
+          fill
+          src="/images/logo-icon.png"
+          priority
+        />
+      </div>
+      <div className="relative hidden h-10 w-32 cursor-pointer sm:block">
+        <Image
+          onClick={() => router.push("/")}
+          alt="Logo"
+          fill
+          className="h-auto w-auto"
+          src="/images/logo.png"
+          priority
+        />
+      </div>
     </div>
   );
 };

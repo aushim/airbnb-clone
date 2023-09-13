@@ -66,7 +66,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
         />
         {pastReservations.length > 0 && (
           <>
-            <hr className="my-16" />
+            <hr className="py-16" />
             <ListingSection
               reservations={pastReservations}
               title={t("pastTitle")}

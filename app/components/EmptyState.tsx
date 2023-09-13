@@ -35,7 +35,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         title={title}
         subtitle={subtitle}
       />
-      <div className="mt-4 w-48">
+      <div className="w-48 pt-4">
         {showReset && (
           <Button
             outline

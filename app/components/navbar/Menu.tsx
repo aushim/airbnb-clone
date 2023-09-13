@@ -165,7 +165,7 @@ const Menu: React.FC<MenuProps> = ({ currentUser }) => {
       {userMenu.isOpen && (
         <div
           ref={userMenuRef}
-          className="absolute right-0 top-12 w-[40vw] overflow-hidden rounded-xl bg-white text-sm shadow-md lg:w-3/4"
+          className="absolute right-0 top-12 w-[50vw] overflow-hidden rounded-xl bg-white text-sm shadow-md lg:w-3/4"
         >
           <div className="flex cursor-pointer flex-col">
             {currentUser ? (
