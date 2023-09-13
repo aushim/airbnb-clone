@@ -1,4 +1,5 @@
 import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 
@@ -13,6 +14,7 @@ interface IUseFavorite {
 
 const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
   const router = useRouter();
+  const t = useTranslations("FavoriteButton");
   const loginModal = useLoginModal();
 
   const hasFavorited = useMemo(() => {
@@ -41,12 +43,11 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
 
         await request();
         router.refresh();
-        toast.success("Success");
       } catch (error) {
-        toast.error("Something went wrong");
+        toast.error(t("errorMessage"));
       }
     },
-    [listingId, currentUser, hasFavorited, router, loginModal],
+    [listingId, currentUser, hasFavorited, router, loginModal, t],
   );
 
   return {

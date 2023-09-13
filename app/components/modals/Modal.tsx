@@ -76,7 +76,7 @@ const Modal: React.FC<ModalProps> = ({
               <div className="relative flex items-center justify-center rounded-t border-b p-6">
                 <button
                   onClick={handleClose}
-                  className="absolute left-9 border-0 p-1 transition hover:opacity-70"
+                  className="absolute start-9 border-0 p-1 transition hover:opacity-70"
                 >
                   <IoMdClose size={18} />
                 </button>

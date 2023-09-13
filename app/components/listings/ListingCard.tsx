@@ -106,7 +106,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
                     className="h-full w-full object-cover transition group-hover:scale-110"
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, (max-width: 1536px) 20vw, 16vw"
                   />
-                  <div className="absolute right-3 top-3">
+                  <div className="absolute end-3 top-3">
                     <HeartButton
                       listingId={data.id}
                       currentUser={currentUser}

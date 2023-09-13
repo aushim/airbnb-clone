@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 
+import useLayoutDirection from "@/app/hooks/useLayoutDirection";
 import Navbar from "@/app/components/navbar/Navbar";
 import SearchModal from "@/app/components/modals/SearchModal";
 import RentModal from "@/app/components/modals/RentModal";
@@ -63,8 +64,14 @@ export default async function RootLayout({
   const messages = await getMessages(locale);
   const currentUser = await getCurrentUser();
 
+  const { getByLocaleString } = useLayoutDirection();
+  const dir = getByLocaleString(locale);
+
   return (
-    <html lang={locale}>
+    <html
+      dir={dir}
+      lang={locale}
+    >
       <body className={font.className}>
         <NextIntlClientProvider
           locale={locale}

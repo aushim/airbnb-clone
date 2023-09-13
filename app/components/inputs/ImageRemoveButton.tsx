@@ -25,12 +25,12 @@ const ImageRemoveButton: React.FC<ImageRemoveButtonProps> = ({
     <>
       <AiOutlineCloseCircle
         size={18}
-        className="absolute right-1 top-1 cursor-pointer fill-white"
+        className="absolute end-1 top-1 cursor-pointer fill-white"
       />
       <AiFillCloseCircle
         onClick={handleRemove}
         size={18}
-        className="absolute right-1 top-1 cursor-pointer fill-rose-600 hover:fill-rose-800"
+        className="absolute end-1 top-1 cursor-pointer fill-rose-600 hover:fill-rose-800"
       />
     </>
   );

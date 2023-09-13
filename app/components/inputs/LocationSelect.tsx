@@ -19,7 +19,7 @@ export type LocationSelectValue = {
 const LocationOptionTextBox = ({ text }: { text: string }) => (
   <div className="flex flex-row items-center gap-3">
     <div>
-      <span className="pl-1 text-neutral-500">{text}</span>
+      <span className="ps-1 text-neutral-500">{text}</span>
     </div>
   </div>
 );
@@ -106,7 +106,7 @@ const LocationSelect: React.FC<LocationSelectProps> = ({
               ...provided,
               fontSize: "1.125rem",
               lineHeight: "1.75rem",
-              marginLeft: "-2px",
+              marginInlineStart: "-2px",
             }),
             control: (provided) => ({
               ...provided,

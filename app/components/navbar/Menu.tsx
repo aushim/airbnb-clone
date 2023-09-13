@@ -120,7 +120,7 @@ const Menu: React.FC<MenuProps> = ({ currentUser }) => {
       {langMenu.isOpen && (
         <div
           ref={langMenuRef}
-          className="absolute right-20 top-12 w-min overflow-hidden rounded-xl bg-white text-sm shadow-md"
+          className="absolute end-20 top-12 w-min overflow-hidden rounded-xl bg-white text-sm shadow-md"
         >
           <div className="flex cursor-pointer flex-col">
             <MenuItem
@@ -165,7 +165,7 @@ const Menu: React.FC<MenuProps> = ({ currentUser }) => {
       {userMenu.isOpen && (
         <div
           ref={userMenuRef}
-          className="absolute right-0 top-12 w-[50vw] overflow-hidden rounded-xl bg-white text-sm shadow-md lg:w-3/4"
+          className="absolute end-0 top-12 w-[50vw] overflow-hidden rounded-xl bg-white text-sm shadow-md lg:w-3/4"
         >
           <div className="flex cursor-pointer flex-col">
             {currentUser ? (

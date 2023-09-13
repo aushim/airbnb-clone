@@ -52,7 +52,7 @@ const Search = () => {
   return (
     <div
       onClick={searchModal.onOpen}
-      className="ml-auto cursor-pointer rounded-full border py-2 shadow-sm transition hover:shadow-md sm:mx-auto md:w-auto"
+      className="ms-auto cursor-pointer rounded-full border py-2 shadow-sm transition hover:shadow-md sm:mx-auto md:w-auto"
     >
       <div className="flex flex-row items-center justify-between">
         <div className="hidden text-sm font-semibold sm:block sm:px-4">
@@ -61,7 +61,7 @@ const Search = () => {
         <div className="hidden flex-1 border-0 text-center text-sm font-semibold sm:block sm:border-x sm:px-4">
           {durationLabel}
         </div>
-        <div className="flex flex-row items-center gap-3 px-2 text-sm text-gray-600 sm:pl-4">
+        <div className="flex flex-row items-center gap-3 px-2 text-sm text-gray-600 sm:ps-4">
           <div className="hidden sm:block">{guestLabel}</div>
           <div className="text-full rounded-full bg-rose-500 p-2 text-white">
             <BiSearch size={18} />
