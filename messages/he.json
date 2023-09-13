@@ -1,1 +1,217 @@
-{}
+{
+  "Home": {
+    "title": "בתי נופש והשכרת דירות"
+  },
+  "FavoritesPage": {
+    "emptyTitle": "לא נמצאו מועדפים",
+    "emptySubtitle": "נראה שאין לך רישומים מועדפים",
+    "title": "מועדפים",
+    "subtitle": "רשימה של מקומות שאהבת"
+  },
+  "ListingPage": {
+    "emptyTitle": "הרישום לא נמצא",
+    "emptySubtitle": "ודא שיש לך את הקישור הנכון"
+  },
+  "PropertiesPage": {
+    "notLoggedInTitle": "לא ניתן למצוא נכסים",
+    "notLoggedInSubtitle": "נראה שאתה לא מחובר",
+    "emptyTitle": "לא נמצאו נכסים",
+    "emptySubtitle": "נראה שאין לך נכסים רשומים בפלטפורמה",
+    "title": "נכסים",
+    "subtitle": "נהל את הנכסים שלך",
+    "deleteLabel": "מחק נכס",
+    "successMessage": "רישום הנכס נמחק",
+    "errorMessage": "משהו השתבש"
+  },
+  "ReservationsPage": {
+    "notLoggedInTitle": "לא ניתן היה למצוא הזמנות",
+    "notLoggedInSubtitle": "נראה שאתה לא מחובר",
+    "emptyTitle": "לא נמצאו הזמנות",
+    "emptySubtitle": "נראה שאין לך עדיין הזמנות בנכסים שלך",
+    "title": "הזמנות בקרוב",
+    "subtitle": "הזמנות עתידיות בנכסים שלך",
+    "emptyMessage": "אין הזמנות בקרוב",
+    "pastTitle": "הזמנות מהעבר",
+    "pastSubtitle": "הזמנות קודמות בנכסים שלך",
+    "pastEmptyMessage": "אין הסתייגויות מהעבר",
+    "cancelLabel": "בטל את הזמנת האורחים",
+    "successMessage": "ההזמנה בוטלה",
+    "errorMessage": "משהו השתבש"
+  },
+  "TripsPage": {
+    "notLoggedInTitle": "לא ניתן למצוא נסיעות",
+    "notLoggedInSubtitle": "נראה שאתה לא מחובר",
+    "emptyTitle": "לא נמצאו נסיעות",
+    "emptySubtitle": "נראה שאין לך נסיעות מתוכננות",
+    "title": "טיולים קרובים",
+    "subtitle": "לאן אתה הולך",
+    "emptyMessage": "אין לך טיולים קרובים",
+    "pastTitle": "טיולים קודמים",
+    "pastSubtitle": "איפה היית",
+    "pastEmptyMessage": "אין לך נסיעות עבר",
+    "cancelLabel": "ביטול הזמנה",
+    "successMessage": "ההזמנה בוטלה",
+    "errorMessage": "משהו השתבש"
+  },
+  "Search": {
+    "defaultLocationLabel": "בְּכָל מָקוֹם",
+    "durationLabel": "{count, plural, =0 {יום 1} =1 {יום אחד} other {# ימים}}",
+    "defaultDurationLabel": "כל שבוע",
+    "guestLabel": "{count, plural, =0 {# אורחים} =1 {# אורח} other {# אורחים}}",
+    "defaultGuestLabel": "הוסף אורחים"
+  },
+  "Menu": {
+    "guestOptionsLabel": "דפדף כאורח",
+    "tripsLabel": "הטיולים שלי",
+    "favoritesLabel": "המועדפים שלי",
+    "hostOptionsLabel": "דפדף כמארח",
+    "propertiesLabel": "הנכסים שלי",
+    "reservationsLabel": "ההסתייגויות שלי",
+    "listPropertyLabel": "רשום את הנכס שלך",
+    "logout": "להתנתק",
+    "login": "התחברות",
+    "register": "הירשם"
+  },
+  "Categories": {
+    "Beach": "החוף",
+    "BeachDescription": "נכס זה קרוב לחוף!",
+    "Windmills": "טחנות רוח",
+    "WindmillsDescription": "בנכס הזה יש טחנות רוח!",
+    "Modern": "מוֹדֶרנִי",
+    "ModernDescription": "נכס זה מודרני!",
+    "Countryside": "כפר",
+    "CountrysideDescription": "נכס זה באזור הכפרי!",
+    "Pools": "בריכות",
+    "PoolsDescription": "לנכס הזה יש בריכה!",
+    "Islands": "איים",
+    "IslandsDescription": "הנכס הזה נמצא על אי!",
+    "Lake": "אֲגַם",
+    "LakeDescription": "נכס זה קרוב לאגם!",
+    "Skiing": "סקִי",
+    "SkiingDescription": "בנכס זה יש פעילויות סקי!",
+    "Castles": "טירות",
+    "CastlesDescription": "הנכס הזה נמצא בטירה!",
+    "Camping": "קֶמפִּינג",
+    "CampingDescription": "בנכס הזה יש פעילויות קמפינג!",
+    "Arctic": "אַרקטִי",
+    "ArcticDescription": "בנכס הזה יש שלג!",
+    "Cave": "מְעָרָה",
+    "CaveDescription": "הנכס הזה נמצא במערה!",
+    "Desert": "מִדבָּר",
+    "DesertDescription": "הנכס הזה נמצא במדבר!",
+    "Barns": "אסמים",
+    "BarnsDescription": "הנכס הזה נמצא ברפת!",
+    "Lux": "לוקס",
+    "LuxDescription": "נכס זה מפואר!"
+  },
+  "EmptyState": {
+    "defaultTitle": "אין התאמות מדויקות",
+    "defaultSubtitle": "נסה לשנות את החיפוש או המסננים שלך",
+    "resetButtonLabel": "הסר את כל המסננים"
+  },
+  "ImageUpload": {
+    "uploadPrompt": "לחץ כדי להעלות{count, plural, =0 {} other { יותר}}"
+  },
+  "LocationSelect": {
+    "placeholderMessage": "לאן אתה הולך",
+    "loadingMessage": "טוען...",
+    "noOptionsMessage": "הקלד להצעות..."
+  },
+  "LoginModal": {
+    "modalLabel": "התחברות",
+    "successMessage": "מחובר",
+    "errorMessage": "משהו השתבש",
+    "title": "ברוך שובך",
+    "subtitle": "התחבר לחשבונך",
+    "googleLoginLabel": "התחבר עם גוגל",
+    "githubLoginLabel": "התחבר עם Github",
+    "emailLoginLabel": "או עם אימייל וסיסמא",
+    "emailInputLabel": "אימייל",
+    "passwordInputLabel": "סיסמה",
+    "firstTimeUserLabel": "פעם ראשונה?",
+    "registerLabel": "צור חשבון",
+    "buttonLabel": "לְהַמשִׁיך"
+  },
+  "RegisterModal": {
+    "modalLabel": "הירשם",
+    "successMessage": "נרשם בהצלחה",
+    "errorMessage": "משהו השתבש",
+    "title": "ברוך הבא",
+    "subtitle": "צור חשבון",
+    "googleSignupLabel": "המשך עם גוגל",
+    "githubSignupLabel": "המשך עם Github",
+    "emailSignupLabel": "או עם אימייל וסיסמא",
+    "nameInputLabel": "שֵׁם",
+    "emailInputLabel": "אימייל",
+    "passwordInputLabel": "סיסמה",
+    "existingUserLabel": "כבר יש לך חשבון?",
+    "loginLabel": "התחברות",
+    "buttonLabel": "לְהַמשִׁיך"
+  },
+  "RentModal": {
+    "modalLabel": "רשום את הנכס שלך",
+    "successMessage": "הנכס נרשם בהצלחה",
+    "errorMessage": "משהו השתבש",
+    "actionLabel": "הַבָּא",
+    "secondaryActionLabel": "חזור",
+    "finalActionLabel": "לִיצוֹר",
+    "categoriesStepTitle": "איזה מאלה מתאר את המקום שלך בצורה הטובה ביותר?",
+    "categoriesStepSubtitle": "בחר כל מה שמתאים",
+    "locationStepTitle": "איפה המקום שלך ממוקם?",
+    "locationStepSubtitle": "עזרו לאורחים למצוא אתכם!",
+    "infoStepTitle": "שתף כמה יסודות על המקום שלך",
+    "infoStepSubtitle": "אילו שירותים יש במקום שלך?",
+    "guestsInputTitle": "אורחים",
+    "guestsInputSubtitle": "כמה אורחים אתה מאפשר?",
+    "roomsInputTitle": "חדרים",
+    "roomsInputSubtitle": "כמה חדרים יש לך?",
+    "bathroomsInputTitle": "חדרי רחצה",
+    "bathroomsInputSubtitle": "כמה חדרי שירותים יש לך?",
+    "photosStepTitle": "הוסף כמה תמונות של המקום שלך",
+    "photosStepSubtitle": "הראה לאורחים איך המקום שלך נראה!",
+    "descriptionStepTitle": "איך היית מתאר את המקום שלך?",
+    "descriptionStepSubtitle": "קצר ומתוק עובד הכי טוב!",
+    "titleInputLabel": "כותרת",
+    "descriptionInputLabel": "תיאור",
+    "priceStepTitle": "עכשיו, קבע את המחיר שלך",
+    "priceStepSubtitle": "כמה אתה רוצה לגבות עבור כל לילה?",
+    "priceInputLabel": "מחיר"
+  },
+  "SearchModal": {
+    "modalLabel": "מסננים",
+    "actionLabel": "הַבָּא",
+    "secondaryActionLabel": "חזור",
+    "finalActionLabel": "לחפש",
+    "locationStepTitle": "לאן אתה רוצה ללכת?",
+    "locationStepSubtitle": "מצא את המיקום המושלם",
+    "dateStepTitle": "מתי אתה רוצה ללכת?",
+    "dateStepSubtitle": "ודא שכולם חופשיים",
+    "infoStepTitle": "עוד מידע",
+    "infoStepSubtitle": "מצא את המקום המושלם שלך",
+    "guestsInputTitle": "אורחים",
+    "guestsInputSubtitle": "כמה אורחים מגיעים?",
+    "roomsInputTitle": "חדרים",
+    "roomsInputSubtitle": "כמה חדרים אתה צריך?",
+    "bathroomsInputTitle": "חדרי רחצה",
+    "bathroomsInputSubtitle": "כמה חדרי אמבטיה אתה צריך?"
+  },
+  "ListingReservation": {
+    "successMessage": "הרישום שמור בהצלחה",
+    "errorMessage": "משהו השתבש",
+    "night": "לַיְלָה",
+    "reserveLabel": "לְהַזמִין",
+    "total": "סה\"כ"
+  },
+  "ListingInfo": {
+    "hostedBy": "בחסות",
+    "guestCount": "{count, plural, =0 {# אורחים} =1 {# אורח} other {# אורחים}}",
+    "roomCount": "{count, plural, =0 {# חדרים} =1 {# חדר} other {# חדרים}}",
+    "bathroomCount": "{count, plural, =0 {# חדרי אמבטיה} =1 {# חדר אמבטיה} other {# חדרי אמבטיה}}",
+    "aboutLabel": "על נכס זה",
+    "locationLabel": "איפה אתה תהיה"
+  },
+  "Error": {
+    "title": "או - או",
+    "subtitle": "משהו השתבש!"
+  }
+}

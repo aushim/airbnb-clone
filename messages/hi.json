@@ -1,1 +1,217 @@
-{}
+{
+  "Home": {
+    "title": "हॉलिडे होम और अपार्टमेंट किराये"
+  },
+  "FavoritesPage": {
+    "emptyTitle": "कोई पसंदीदा नहीं मिला",
+    "emptySubtitle": "ऐसा लगता है कि आपकी कोई पसंदीदा सूची नहीं है",
+    "title": "पसंदीदा",
+    "subtitle": "आपके द्वारा पसंद किए गए स्थानों की सूची"
+  },
+  "ListingPage": {
+    "emptyTitle": "सूची नहीं मिली",
+    "emptySubtitle": "सुनिश्चित करें कि आपके पास सही लिंक है"
+  },
+  "PropertiesPage": {
+    "notLoggedInTitle": "कोई संपत्ति नहीं मिल सकी",
+    "notLoggedInSubtitle": "ऐसा लगता है कि आप लॉग इन नहीं हैं",
+    "emptyTitle": "कोई संपत्ति नहीं मिली",
+    "emptySubtitle": "ऐसा लगता है कि आपके पास प्लेटफ़ॉर्म पर कोई संपत्ति सूचीबद्ध नहीं है",
+    "title": "गुण",
+    "subtitle": "अपनी संपत्तियों का प्रबंधन करें",
+    "deleteLabel": "संपत्ति हटाएं",
+    "successMessage": "संपत्ति सूची हटा दी गई",
+    "errorMessage": "कुछ गलत हो गया"
+  },
+  "ReservationsPage": {
+    "notLoggedInTitle": "कोई आरक्षण नहीं मिल सका",
+    "notLoggedInSubtitle": "ऐसा लगता है कि आप लॉग इन नहीं हैं",
+    "emptyTitle": "कोई आरक्षण नहीं मिला",
+    "emptySubtitle": "ऐसा लगता है कि आपकी संपत्तियों पर अभी तक कोई आरक्षण नहीं है",
+    "title": "आगामी आरक्षण",
+    "subtitle": "आपकी संपत्तियों पर भविष्य की बुकिंग",
+    "emptyMessage": "कोई आगामी आरक्षण नहीं",
+    "pastTitle": "पिछले आरक्षण",
+    "pastSubtitle": "आपकी संपत्तियों पर पिछली बुकिंग",
+    "pastEmptyMessage": "कोई पिछला आरक्षण नहीं",
+    "cancelLabel": "अतिथि आरक्षण रद्द करें",
+    "successMessage": "आरक्षण रद्द",
+    "errorMessage": "कुछ गलत हो गया"
+  },
+  "TripsPage": {
+    "notLoggedInTitle": "कोई यात्रा नहीं मिल सकी",
+    "notLoggedInSubtitle": "ऐसा लगता है कि आप लॉग इन नहीं हैं",
+    "emptyTitle": "कोई यात्रा नहीं मिली",
+    "emptySubtitle": "ऐसा लगता है कि आपकी कोई यात्रा की योजना नहीं है",
+    "title": "आगामी यात्राएँ",
+    "subtitle": "जहां आप जा रहे हैं",
+    "emptyMessage": "आपकी कोई आगामी यात्रा नहीं है",
+    "pastTitle": "पिछली यात्राएँ",
+    "pastSubtitle": "आप कहाँ थे",
+    "pastEmptyMessage": "आपकी कोई पिछली यात्रा नहीं है",
+    "cancelLabel": "आरक्षण रद्द करो",
+    "successMessage": "आरक्षण रद्द",
+    "errorMessage": "कुछ गलत हो गया"
+  },
+  "Search": {
+    "defaultLocationLabel": "कहीं भी",
+    "durationLabel": "{count, plural, =0 {1 दिन} =1 {# दिन} other {# दिन}}",
+    "defaultDurationLabel": "किसी भी सप्ताह",
+    "guestLabel": "{count, plural, =0 {#मेहमान} =1 {# अतिथि} other {#मेहमान}}",
+    "defaultGuestLabel": "अतिथियों को जोड़ें"
+  },
+  "Menu": {
+    "guestOptionsLabel": "अतिथि के रूप में ब्राउज़ करें",
+    "tripsLabel": "मेरे सुझाव",
+    "favoritesLabel": "मेरे प्रिय",
+    "hostOptionsLabel": "होस्ट के रूप में ब्राउज़ करें",
+    "propertiesLabel": "मेरी संपत्तियाँ",
+    "reservationsLabel": "मेरा आरक्षण",
+    "listPropertyLabel": "अपनी संपत्ति की सूची बनाएं",
+    "logout": "लॉग आउट",
+    "login": "लॉग इन करें",
+    "register": "साइन अप करें"
+  },
+  "Categories": {
+    "Beach": "समुद्र तट",
+    "BeachDescription": "यह संपत्ति समुद्र तट के नजदीक है!",
+    "Windmills": "पवन चक्कियों",
+    "WindmillsDescription": "इस संपत्ति में पवन चक्कियाँ हैं!",
+    "Modern": "आधुनिक",
+    "ModernDescription": "यह संपत्ति आधुनिक है!",
+    "Countryside": "ग्रामीण क्षेत्र",
+    "CountrysideDescription": "यह संपत्ति ग्रामीण इलाके में है!",
+    "Pools": "ताल",
+    "PoolsDescription": "इस संपत्ति में एक पूल है!",
+    "Islands": "द्वीप समूह",
+    "IslandsDescription": "यह संपत्ति एक द्वीप पर है!",
+    "Lake": "झील",
+    "LakeDescription": "यह संपत्ति एक झील के करीब है!",
+    "Skiing": "स्कीइंग",
+    "SkiingDescription": "इस संपत्ति में स्कीइंग गतिविधियाँ हैं!",
+    "Castles": "महल",
+    "CastlesDescription": "यह संपत्ति एक महल में है!",
+    "Camping": "डेरा डालना",
+    "CampingDescription": "इस संपत्ति में कैम्पिंग गतिविधियाँ हैं!",
+    "Arctic": "आर्कटिक",
+    "ArcticDescription": "इस संपत्ति में बर्फ है!",
+    "Cave": "गुफ़ा",
+    "CaveDescription": "यह संपत्ति एक गुफा में है!",
+    "Desert": "रेगिस्तान",
+    "DesertDescription": "यह संपत्ति रेगिस्तान में है!",
+    "Barns": "खलिहानों",
+    "BarnsDescription": "यह संपत्ति खलिहान में है!",
+    "Lux": "लूक्रस",
+    "LuxDescription": "यह संपत्ति आलीशान है!"
+  },
+  "EmptyState": {
+    "defaultTitle": "कोई सटीक मिलान नहीं",
+    "defaultSubtitle": "अपनी खोज या फ़िल्टर बदलने का प्रयास करें",
+    "resetButtonLabel": "सभी फ़िल्टर हटाएँ"
+  },
+  "ImageUpload": {
+    "uploadPrompt": "अपलोड करने के लिए क्लिक करें{count, plural, =0 {} other { अधिक}}"
+  },
+  "LocationSelect": {
+    "placeholderMessage": "आप कहां जा रहे हैं",
+    "loadingMessage": "लोड हो रहा है...",
+    "noOptionsMessage": "सुझाव के लिए टाइप करें..."
+  },
+  "LoginModal": {
+    "modalLabel": "लॉग इन करें",
+    "successMessage": "में लॉग इन",
+    "errorMessage": "कुछ गलत हो गया",
+    "title": "वापसी पर स्वागत है",
+    "subtitle": "अपने अकाउंट में लॉग इन करें",
+    "googleLoginLabel": "गूगल से लॉगिन करें",
+    "githubLoginLabel": "Github के साथ लॉगिन करें",
+    "emailLoginLabel": "या ईमेल और पासवर्ड के साथ",
+    "emailInputLabel": "ईमेल",
+    "passwordInputLabel": "पासवर्ड",
+    "firstTimeUserLabel": "पहली बार?",
+    "registerLabel": "खाता बनाएं",
+    "buttonLabel": "जारी रखना"
+  },
+  "RegisterModal": {
+    "modalLabel": "पंजीकरण करवाना",
+    "successMessage": "सफलतापूर्वक साइन अप किया गया",
+    "errorMessage": "कुछ गलत हो गया",
+    "title": "स्वागत",
+    "subtitle": "खाता बनाएं",
+    "googleSignupLabel": "Google के साथ जारी रखें",
+    "githubSignupLabel": "जीथब के साथ जारी रखें",
+    "emailSignupLabel": "या ईमेल और पासवर्ड के साथ",
+    "nameInputLabel": "नाम",
+    "emailInputLabel": "ईमेल",
+    "passwordInputLabel": "पासवर्ड",
+    "existingUserLabel": "क्या आपके पास पहले से एक खाता मौजूद है?",
+    "loginLabel": "लॉग इन करें",
+    "buttonLabel": "जारी रखना"
+  },
+  "RentModal": {
+    "modalLabel": "अपनी संपत्ति की सूची बनाएं",
+    "successMessage": "संपत्ति सफलतापूर्वक सूचीबद्ध",
+    "errorMessage": "कुछ गलत हो गया",
+    "actionLabel": "अगला",
+    "secondaryActionLabel": "पीछे",
+    "finalActionLabel": "बनाएं",
+    "categoriesStepTitle": "इनमें से कौन सा आपके स्थान का सबसे अच्छा वर्णन करता है?",
+    "categoriesStepSubtitle": "लागू होने वाले सभी का चयन करें",
+    "locationStepTitle": "आपका स्थान कहाँ स्थित है?",
+    "locationStepSubtitle": "मेहमानों को आपको ढूंढने में मदद करें!",
+    "infoStepTitle": "अपने स्थान के बारे में कुछ बुनियादी बातें साझा करें",
+    "infoStepSubtitle": "आपके यहाँ क्या सुविधाएँ हैं?",
+    "guestsInputTitle": "अतिथियों",
+    "guestsInputSubtitle": "आप कितने मेहमानों को अनुमति देते हैं?",
+    "roomsInputTitle": "कमरा",
+    "roomsInputSubtitle": "आपके पास कितने कमरे हैं?",
+    "bathroomsInputTitle": "बाथरूम",
+    "bathroomsInputSubtitle": "आपके पास कितने बाथरूम हैं?",
+    "photosStepTitle": "अपने स्थान की कुछ फ़ोटो जोड़ें",
+    "photosStepSubtitle": "मेहमानों को दिखाएँ कि आपका स्थान कैसा दिखता है!",
+    "descriptionStepTitle": "आप अपने स्थान का वर्णन कैसे करेंगे?",
+    "descriptionStepSubtitle": "लघु और मधुर कार्य सर्वोत्तम होते हैं!",
+    "titleInputLabel": "शीर्षक",
+    "descriptionInputLabel": "विवरण",
+    "priceStepTitle": "अब, अपनी कीमत निर्धारित करें",
+    "priceStepSubtitle": "आप प्रत्येक रात के लिए कितना शुल्क लेना चाहते हैं?",
+    "priceInputLabel": "कीमत"
+  },
+  "SearchModal": {
+    "modalLabel": "फिल्टर",
+    "actionLabel": "अगला",
+    "secondaryActionLabel": "पीछे",
+    "finalActionLabel": "खोज",
+    "locationStepTitle": "आप कहाँ जाना चाहते हैं?",
+    "locationStepSubtitle": "सही स्थान ढूंढें",
+    "dateStepTitle": "आप कब जाना चाहते हैं?",
+    "dateStepSubtitle": "सुनिश्चित करें कि हर कोई स्वतंत्र है",
+    "infoStepTitle": "अधिक जानकारी",
+    "infoStepSubtitle": "अपना आदर्श स्थान खोजें",
+    "guestsInputTitle": "अतिथियों",
+    "guestsInputSubtitle": "कितने मेहमान आ रहे हैं?",
+    "roomsInputTitle": "कमरा",
+    "roomsInputSubtitle": "आपको कितने कमरे चाहिए?",
+    "bathroomsInputTitle": "बाथरूम",
+    "bathroomsInputSubtitle": "आपको कितने बाथरूम चाहिए?"
+  },
+  "ListingReservation": {
+    "successMessage": "सूची सफलतापूर्वक आरक्षित की गई",
+    "errorMessage": "कुछ गलत हो गया",
+    "night": "रात",
+    "reserveLabel": "संरक्षित",
+    "total": "कुल"
+  },
+  "ListingInfo": {
+    "hostedBy": "के द्वारा मेजबानी",
+    "guestCount": "{count, plural, =0 {#मेहमान} =1 {# अतिथि} other {#मेहमान}}",
+    "roomCount": "{count, plural, =0 {#कमरे} =1 {# कमरा} other {#कमरे}}",
+    "bathroomCount": "{count, plural, =0 {#बाथरूम} =1 {# स्नानघर} other {#बाथरूम}}",
+    "aboutLabel": "इस संपत्ति के बारे में",
+    "locationLabel": "आप कहां होंगे"
+  },
+  "Error": {
+    "title": "उह ओह",
+    "subtitle": "कुछ गलत हो गया!"
+  }
+}

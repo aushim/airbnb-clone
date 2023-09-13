@@ -1,1 +1,217 @@
-{}
+{
+  "Home": {
+    "title": "Casas y apartamentos de alquiler"
+  },
+  "FavoritesPage": {
+    "emptyTitle": "No se encontraron favoritos",
+    "emptySubtitle": "Parece que no tienes listados favoritos",
+    "title": "Favoritos",
+    "subtitle": "Lista de lugares que te han gustado"
+  },
+  "ListingPage": {
+    "emptyTitle": "Lista no encontrada",
+    "emptySubtitle": "Asegúrate de tener el enlace correcto"
+  },
+  "PropertiesPage": {
+    "notLoggedInTitle": "No se pudo encontrar ninguna propiedad",
+    "notLoggedInSubtitle": "Parece que no has iniciado sesión",
+    "emptyTitle": "No se encontraron propiedades",
+    "emptySubtitle": "Parece que no tienes propiedades listadas en la plataforma",
+    "title": "Propiedades",
+    "subtitle": "Administra tus propiedades",
+    "deleteLabel": "Eliminar propiedad",
+    "successMessage": "Listado de propiedades eliminado",
+    "errorMessage": "Algo salió mal"
+  },
+  "ReservationsPage": {
+    "notLoggedInTitle": "No se pudo encontrar ninguna reserva",
+    "notLoggedInSubtitle": "Parece que no has iniciado sesión",
+    "emptyTitle": "No se encontraron reservas",
+    "emptySubtitle": "Parece que aún no tiene reservas en sus propiedades",
+    "title": "Próximas reservas",
+    "subtitle": "Futuras reservas en sus propiedades",
+    "emptyMessage": "No hay reservas futuras",
+    "pastTitle": "Últimas reservas",
+    "pastSubtitle": "Reservas anteriores en sus propiedades",
+    "pastEmptyMessage": "No hay reservas anteriores",
+    "cancelLabel": "Cancelar reserva de huésped",
+    "successMessage": "Reserva cancelada",
+    "errorMessage": "Algo salió mal"
+  },
+  "TripsPage": {
+    "notLoggedInTitle": "No se pudo encontrar ningún viaje",
+    "notLoggedInSubtitle": "Parece que no has iniciado sesión",
+    "emptyTitle": "No se encontraron viajes",
+    "emptySubtitle": "Parece que no tienes ningún viaje planeado",
+    "title": "Próximos viajes",
+    "subtitle": "A dónde vas",
+    "emptyMessage": "No tienes viajes próximos",
+    "pastTitle": "Pasados viajes",
+    "pastSubtitle": "Donde has estado",
+    "pastEmptyMessage": "No tienes viajes pasados",
+    "cancelLabel": "Cancelar reserva",
+    "successMessage": "Reserva cancelada",
+    "errorMessage": "Algo salió mal"
+  },
+  "Search": {
+    "defaultLocationLabel": "En cualquier lugar",
+    "durationLabel": "{count, plural, =0 {1 día} =1 {# día} other {# días}}",
+    "defaultDurationLabel": "Cualquier semana",
+    "guestLabel": "{count, plural, =0 {# invitados} =1 {# invitado} other {# invitados}}",
+    "defaultGuestLabel": "Añadir invitados"
+  },
+  "Menu": {
+    "guestOptionsLabel": "Navegar como invitado",
+    "tripsLabel": "Mis viajes",
+    "favoritesLabel": "Mis favoritos",
+    "hostOptionsLabel": "Navegar como host",
+    "propertiesLabel": "Mis propiedades",
+    "reservationsLabel": "Mis reservas",
+    "listPropertyLabel": "Listar su propiedad",
+    "logout": "Cerrar sesión",
+    "login": "Ingresar",
+    "register": "Regístrate"
+  },
+  "Categories": {
+    "Beach": "Playa",
+    "BeachDescription": "Esta propiedad está cerca de la playa!",
+    "Windmills": "Molinos",
+    "WindmillsDescription": "¡Esta propiedad tiene molinos de viento!",
+    "Modern": "Moderna",
+    "ModernDescription": "¡Esta propiedad es moderna!",
+    "Countryside": "Camino",
+    "CountrysideDescription": "Esta propiedad está en el campo!",
+    "Pools": "Piscinas",
+    "PoolsDescription": "¡Esta propiedad tiene un pool!",
+    "Islands": "Islas",
+    "IslandsDescription": "¡Esta propiedad está en una isla!",
+    "Lake": "Lago",
+    "LakeDescription": "¡Esta propiedad está cerca de un lago!",
+    "Skiing": "Esquí",
+    "SkiingDescription": "¡Esta propiedad tiene actividades de esquí!",
+    "Castles": "Castillos",
+    "CastlesDescription": "¡Esta propiedad está en un castillo!",
+    "Camping": "Camping",
+    "CampingDescription": "Esta propiedad tiene actividades de acampamiento!",
+    "Arctic": "Ártico",
+    "ArcticDescription": "¡Esta propiedad tiene nieve!",
+    "Cave": "Cueva",
+    "CaveDescription": "¡Esta propiedad está en una cueva!",
+    "Desert": "Desert",
+    "DesertDescription": "¡Esta propiedad está en el desierto!",
+    "Barns": "Barns",
+    "BarnsDescription": "¡Esta propiedad está en el granero!",
+    "Lux": "Lux",
+    "LuxDescription": "¡Esta propiedad es lujosa!"
+  },
+  "EmptyState": {
+    "defaultTitle": "Sin coincidencias exactas",
+    "defaultSubtitle": "Intenta cambiar tu búsqueda o filtros",
+    "resetButtonLabel": "Eliminar todos los filtros"
+  },
+  "ImageUpload": {
+    "uploadPrompt": "¡Haz clic para subir{count, plural, =0 {} other { ¡más}}"
+  },
+  "LocationSelect": {
+    "placeholderMessage": "¿A dónde vas",
+    "loadingMessage": "Cargando...",
+    "noOptionsMessage": "Escriba para sugerencias..."
+  },
+  "LoginModal": {
+    "modalLabel": "Ingresar",
+    "successMessage": "Conectado",
+    "errorMessage": "Algo salió mal",
+    "title": "Bienvenida de nuevo",
+    "subtitle": "Inicia sesión en tu cuenta",
+    "googleLoginLabel": "Iniciar sesión con Google",
+    "githubLoginLabel": "Iniciar sesión con Github",
+    "emailLoginLabel": "o con correo electrónico y contraseña",
+    "emailInputLabel": "E-mail",
+    "passwordInputLabel": "Contraseña",
+    "firstTimeUserLabel": "¿Primera vez?",
+    "registerLabel": "Crear una cuenta",
+    "buttonLabel": "Continuar"
+  },
+  "RegisterModal": {
+    "modalLabel": "Registrarse",
+    "successMessage": "Registrado correctamente",
+    "errorMessage": "Algo salió mal",
+    "title": "Bienvenida",
+    "subtitle": "Crear una cuenta",
+    "googleSignupLabel": "Continuar con Google",
+    "githubSignupLabel": "Continuar con Github",
+    "emailSignupLabel": "o con correo electrónico y contraseña",
+    "nameInputLabel": "Nombre",
+    "emailInputLabel": "E-mail",
+    "passwordInputLabel": "Contraseña",
+    "existingUserLabel": "¿Ya tienes una cuenta?",
+    "loginLabel": "Ingresar",
+    "buttonLabel": "Continuar"
+  },
+  "RentModal": {
+    "modalLabel": "Listar su propiedad",
+    "successMessage": "Propiedades listadas con éxito",
+    "errorMessage": "Algo salió mal",
+    "actionLabel": "Siguiente",
+    "secondaryActionLabel": "Atrás",
+    "finalActionLabel": "Crear",
+    "categoriesStepTitle": "¿Cuál de estos describe mejor su lugar?",
+    "categoriesStepSubtitle": "Seleccionar todos los que aplican",
+    "locationStepTitle": "¿Dónde se encuentra tu lugar?",
+    "locationStepSubtitle": "¡Ayuda a los invitados a encontrarte!",
+    "infoStepTitle": "Comparte algunos conceptos básicos sobre tu lugar",
+    "infoStepSubtitle": "¿Qué servicios tiene su lugar?",
+    "guestsInputTitle": "Invitados",
+    "guestsInputSubtitle": "¿Cuántos invitados permites?",
+    "roomsInputTitle": "Salas",
+    "roomsInputSubtitle": "¿Cuántas habitaciones tienes?",
+    "bathroomsInputTitle": "Trozos",
+    "bathroomsInputSubtitle": "¿Cuántos baños tienes?",
+    "photosStepTitle": "Añade algunas fotos de tu lugar",
+    "photosStepSubtitle": "¡Demuestre a los invitados lo que se ve su lugar!",
+    "descriptionStepTitle": "¿Cómo describirías tu lugar?",
+    "descriptionStepSubtitle": "¡Lo mejor es el trabajo corto y dulce!",
+    "titleInputLabel": "Título",
+    "descriptionInputLabel": "Descripción",
+    "priceStepTitle": "Ahora, establece tu precio",
+    "priceStepSubtitle": "¿Cuánto quieres cobrar por cada noche?",
+    "priceInputLabel": "Precio"
+  },
+  "SearchModal": {
+    "modalLabel": "Filtros",
+    "actionLabel": "Siguiente",
+    "secondaryActionLabel": "Atrás",
+    "finalActionLabel": "Buscar",
+    "locationStepTitle": "¿A dónde quieres ir?",
+    "locationStepSubtitle": "Encuentra la ubicación perfecta",
+    "dateStepTitle": "¿Cuándo quieres ir?",
+    "dateStepSubtitle": "Asegúrate de que todo el mundo es gratis",
+    "infoStepTitle": "Más información",
+    "infoStepSubtitle": "Encuentra tu lugar perfecto",
+    "guestsInputTitle": "Invitados",
+    "guestsInputSubtitle": "¿Cuántos invitados llegan?",
+    "roomsInputTitle": "Salas",
+    "roomsInputSubtitle": "¿Cuántas habitaciones necesitas?",
+    "bathroomsInputTitle": "Trozos",
+    "bathroomsInputSubtitle": "¿Cuántos baños necesitas?"
+  },
+  "ListingReservation": {
+    "successMessage": "Lista reservada correctamente",
+    "errorMessage": "Algo salió mal",
+    "night": "noche",
+    "reserveLabel": "Reservar",
+    "total": "Total"
+  },
+  "ListingInfo": {
+    "hostedBy": "Alojado por",
+    "guestCount": "{count, plural, =0 {# invitados} =1 {# invitado} other {# invitados}}",
+    "roomCount": "{count, plural, =0 {# habitaciones} =1 {# habitación} other {# habitaciones}}",
+    "bathroomCount": "{count, plural, =0 {# baños} =1 {# baño} other {# baños}}",
+    "aboutLabel": "Acerca de esta propiedad",
+    "locationLabel": "Donde estarás"
+  },
+  "Error": {
+    "title": "Uh oh",
+    "subtitle": "¡Algo salió mal!"
+  }
+}

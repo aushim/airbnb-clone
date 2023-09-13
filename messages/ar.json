@@ -1,1 +1,217 @@
-{}
+{
+  "Home": {
+    "title": "منازل العطلات وتأجير الشقق"
+  },
+  "FavoritesPage": {
+    "emptyTitle": "لم يتم العثور على المفضلة",
+    "emptySubtitle": "يبدو أنه ليس لديك أي قوائم مفضلة",
+    "title": "المفضلة",
+    "subtitle": "قائمة الأماكن التي أعجبتك"
+  },
+  "ListingPage": {
+    "emptyTitle": "القائمة غير موجودة",
+    "emptySubtitle": "تأكد من أن لديك الرابط الصحيح"
+  },
+  "PropertiesPage": {
+    "notLoggedInTitle": "تعذر العثور على أي خصائص",
+    "notLoggedInSubtitle": "يبدو أنك لم تقم بتسجيل الدخول",
+    "emptyTitle": "لا توجد خصائص",
+    "emptySubtitle": "يبدو أنه ليس لديك خصائص مدرجة على المنصة",
+    "title": "الخصائص",
+    "subtitle": "إدارة خصائصك",
+    "deleteLabel": "حذف الخاصية",
+    "successMessage": "تم حذف قائمة الخصائص",
+    "errorMessage": "حدث خطأ ما"
+  },
+  "ReservationsPage": {
+    "notLoggedInTitle": "تعذر العثور على أي تحفظات",
+    "notLoggedInSubtitle": "يبدو أنك لم تقم بتسجيل الدخول",
+    "emptyTitle": "لم يتم العثور على أي تحفظات",
+    "emptySubtitle": "يبدو أنك ليس لديك أي حجز بعد على خصائصك",
+    "title": "الحجوزات القادمة",
+    "subtitle": "الحجز في المستقبل على خصائصك",
+    "emptyMessage": "لا توجد تحفظات قادمة",
+    "pastTitle": "التحفظات السابقة",
+    "pastSubtitle": "الحجز السابق على خصائصك",
+    "pastEmptyMessage": "لا توجد تحفظات سابقة",
+    "cancelLabel": "إلغاء حجز الضيوف",
+    "successMessage": "تم إلغاء الحجز",
+    "errorMessage": "حدث خطأ ما"
+  },
+  "TripsPage": {
+    "notLoggedInTitle": "تعذر العثور على أي رحلات",
+    "notLoggedInSubtitle": "يبدو أنك لم تقم بتسجيل الدخول",
+    "emptyTitle": "لم يتم العثور على رحلات",
+    "emptySubtitle": "يبدو أنك ليس لديك أي رحلات مخطط لها",
+    "title": "الرحلات القادمة",
+    "subtitle": "أين كنت ذاهبا",
+    "emptyMessage": "ليس لديك رحلات قادمة",
+    "pastTitle": "الرحلات السابقة",
+    "pastSubtitle": "أين كنت",
+    "pastEmptyMessage": "ليس لديك رحلات سابقة",
+    "cancelLabel": "إلغاء الحجز",
+    "successMessage": "تم إلغاء الحجز",
+    "errorMessage": "حدث خطأ ما"
+  },
+  "Search": {
+    "defaultLocationLabel": "في أي مكان",
+    "durationLabel": "{count, plural, =0 {يوم واحد} =1 {# يوم} other {# أيام}}",
+    "defaultDurationLabel": "كل أسبوع",
+    "guestLabel": "{count, plural, =0 {# ضيوف} =1 {# ضيف} other {# ضيوف}}",
+    "defaultGuestLabel": "إضافة ضيوف"
+  },
+  "Menu": {
+    "guestOptionsLabel": "تصفح كضيف",
+    "tripsLabel": "رحلاتي",
+    "favoritesLabel": "مفضلاتي",
+    "hostOptionsLabel": "تصفح كمضيف",
+    "propertiesLabel": "خصائصي",
+    "reservationsLabel": "تحفظاتي",
+    "listPropertyLabel": "قائمة الخاصية الخاصة بك",
+    "logout": "تسجيل الخروج",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل الدخول"
+  },
+  "Categories": {
+    "Beach": "شاطئ",
+    "BeachDescription": "هذه الخاصية قريبة من الشاطئ!",
+    "Windmills": "طاحونة",
+    "WindmillsDescription": "هذه الخاصية لها طاحون!",
+    "Modern": "حديث",
+    "ModernDescription": "هذه الخاصية حديثة!",
+    "Countryside": "الريف",
+    "CountrysideDescription": "هذه العقارات موجودة في الريف!",
+    "Pools": "المخازن",
+    "PoolsDescription": "هذه الخاصية لها حوض !",
+    "Islands": "جزر",
+    "IslandsDescription": "هذه الممتلكات موجودة في الجزيرة!",
+    "Lake": "بحيرة",
+    "LakeDescription": "هذه الخاصية قريبة من البحارة!",
+    "Skiing": "التزلج",
+    "SkiingDescription": "هذه الخاصية لها أنشطة التزحلق!",
+    "Castles": "القلاع",
+    "CastlesDescription": "هذه الخاصية في قلعة!",
+    "Camping": "معسكر",
+    "CampingDescription": "هذه الممتلكات لها أنشطة التخييم!",
+    "Arctic": "القطب الشمالي",
+    "ArcticDescription": "هذه الخاصية تحتوي على ثلج!",
+    "Cave": "كهف",
+    "CaveDescription": "هذه الخاصية في كهف!",
+    "Desert": "Desert",
+    "DesertDescription": "هذه الخاصية في الصحراء!",
+    "Barns": "Barns",
+    "BarnsDescription": "هذه الخاصية في الشريط!",
+    "Lux": "Lux",
+    "LuxDescription": "هذه الخاصية مرفوعة!"
+  },
+  "EmptyState": {
+    "defaultTitle": "لا توجد تطابق دقيق",
+    "defaultSubtitle": "حاول تغيير البحث أو الفلاتر الخاصة بك",
+    "resetButtonLabel": "إزالة جميع الفلاتر"
+  },
+  "ImageUpload": {
+    "uploadPrompt": "انقر لتحميل{count, plural, =0 {} other { أكثر}}"
+  },
+  "LocationSelect": {
+    "placeholderMessage": "أين أنت ذاهب",
+    "loadingMessage": "تحميل...",
+    "noOptionsMessage": "اكتب للاقتراحات..."
+  },
+  "LoginModal": {
+    "modalLabel": "تسجيل الدخول",
+    "successMessage": "تم تسجيل الدخول",
+    "errorMessage": "حدث خطأ ما",
+    "title": "مرحبا بعودة",
+    "subtitle": "تسجيل الدخول إلى حسابك",
+    "googleLoginLabel": "تسجيل الدخول باستخدام جوجل",
+    "githubLoginLabel": "تسجيل الدخول باستخدام Github",
+    "emailLoginLabel": "أو مع البريد الإلكتروني وكلمة المرور",
+    "emailInputLabel": "البريد الإلكتروني",
+    "passwordInputLabel": "كلمة المرور",
+    "firstTimeUserLabel": "المرة الأولى؟",
+    "registerLabel": "إنشاء حساب",
+    "buttonLabel": "متابعة"
+  },
+  "RegisterModal": {
+    "modalLabel": "تسجيل",
+    "successMessage": "تم التسجيل بنجاح",
+    "errorMessage": "حدث خطأ ما",
+    "title": "مرحبا بك",
+    "subtitle": "إنشاء حساب",
+    "googleSignupLabel": "المتابعة مع جوجل",
+    "githubSignupLabel": "المتابعة مع Github",
+    "emailSignupLabel": "أو مع البريد الإلكتروني وكلمة المرور",
+    "nameInputLabel": "الاسم",
+    "emailInputLabel": "البريد الإلكتروني",
+    "passwordInputLabel": "كلمة المرور",
+    "existingUserLabel": "لديك حساب بالفعل؟",
+    "loginLabel": "تسجيل الدخول",
+    "buttonLabel": "متابعة"
+  },
+  "RentModal": {
+    "modalLabel": "قائمة الخاصية الخاصة بك",
+    "successMessage": "تم إدراج الخاصية بنجاح",
+    "errorMessage": "حدث خطأ ما",
+    "actionLabel": "التالي",
+    "secondaryActionLabel": "الرجوع",
+    "finalActionLabel": "إنشاء",
+    "categoriesStepTitle": "أي من هذه أفضل وصف لمكانك؟",
+    "categoriesStepSubtitle": "حدد كل ما ينطبق",
+    "locationStepTitle": "أين يوجد مكانك؟",
+    "locationStepSubtitle": "ساعد الضيوف في العثور عليك!",
+    "infoStepTitle": "شارك بعض الاساسيات حول مكانك",
+    "infoStepSubtitle": "ما هي وسائل الراحة التي يمتلكها مكانك؟",
+    "guestsInputTitle": "الضيوف",
+    "guestsInputSubtitle": "كم عدد الضيوف الذين تسمح بهم؟",
+    "roomsInputTitle": "غرف",
+    "roomsInputSubtitle": "كم من الغرف لديك؟",
+    "bathroomsInputTitle": "حمامات",
+    "bathroomsInputSubtitle": "كم حمامًا لديك؟",
+    "photosStepTitle": "أضف بعض الصور لمكانك",
+    "photosStepSubtitle": "اظهر الضيوف كيف يبدو مكانك!",
+    "descriptionStepTitle": "كيف يمكن أن تصف مكانك؟",
+    "descriptionStepSubtitle": "افضل عمل قصير و حلو!",
+    "titleInputLabel": "العنوان",
+    "descriptionInputLabel": "الوصف",
+    "priceStepTitle": "الآن، حدد سعرك",
+    "priceStepSubtitle": "كم تريد أن تشحن مقابل كل ليلة؟",
+    "priceInputLabel": "السعر"
+  },
+  "SearchModal": {
+    "modalLabel": "فلاتر",
+    "actionLabel": "التالي",
+    "secondaryActionLabel": "الرجوع",
+    "finalActionLabel": "البحث",
+    "locationStepTitle": "أين تريد الذهاب؟",
+    "locationStepSubtitle": "البحث عن الموقع المثالي",
+    "dateStepTitle": "متى تريد الذهاب؟",
+    "dateStepSubtitle": "تأكد من أن الجميع مجانيون",
+    "infoStepTitle": "مزيد من المعلومات",
+    "infoStepSubtitle": "ابحث عن مكانك المثالي",
+    "guestsInputTitle": "الضيوف",
+    "guestsInputSubtitle": "كم عدد الضيوف القادمين؟",
+    "roomsInputTitle": "غرف",
+    "roomsInputSubtitle": "كم عدد الغرف التي تحتاج إليها؟",
+    "bathroomsInputTitle": "حمامات",
+    "bathroomsInputSubtitle": "كم حمام تحتاج إليه؟"
+  },
+  "ListingReservation": {
+    "successMessage": "تم حجز القائمة بنجاح",
+    "errorMessage": "حدث خطأ ما",
+    "night": "الليل",
+    "reserveLabel": "احتياطي",
+    "total": "المجموع"
+  },
+  "ListingInfo": {
+    "hostedBy": "مضيفة بواسطة",
+    "guestCount": "{count, plural, =0 {# ضيوف} =1 {# ضيف} other {# ضيوف}}",
+    "roomCount": "{count, plural, =0 {# الغرف} =1 {# الغرفة} other {# الغرف}}",
+    "bathroomCount": "{count, plural, =0 {# حمامات} =1 {# حمام} other {# حمامات}}",
+    "aboutLabel": "حول هذه الخاصية",
+    "locationLabel": "أين ستكون"
+  },
+  "Error": {
+    "title": "Uh oh",
+    "subtitle": "حدث خطأ ما!"
+  }
+}

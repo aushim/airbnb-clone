@@ -1,1 +1,217 @@
-{}
+{
+  "Home": {
+    "title": "假日之家和公寓租金"
+  },
+  "FavoritesPage": {
+    "emptyTitle": "未找到收藏夹",
+    "emptySubtitle": "看起来您没有收藏的列表",
+    "title": "收藏夹",
+    "subtitle": "您喜欢的位置列表"
+  },
+  "ListingPage": {
+    "emptyTitle": "找不到列表",
+    "emptySubtitle": "请确保您有正确的链接"
+  },
+  "PropertiesPage": {
+    "notLoggedInTitle": "找不到任何属性",
+    "notLoggedInSubtitle": "您似乎没有登录",
+    "emptyTitle": "未找到属性",
+    "emptySubtitle": "看起来您没有在平台上列出的属性",
+    "title": "属性",
+    "subtitle": "管理您的属性",
+    "deleteLabel": "删除属性",
+    "successMessage": "属性列表已删除",
+    "errorMessage": "出了错。"
+  },
+  "ReservationsPage": {
+    "notLoggedInTitle": "找不到任何保留",
+    "notLoggedInSubtitle": "您似乎没有登录",
+    "emptyTitle": "未发现保留",
+    "emptySubtitle": "您对您的属性似乎还没有任何保留",
+    "title": "即将到来的保留",
+    "subtitle": "未来预订您的属性",
+    "emptyMessage": "没有即将进行的保留",
+    "pastTitle": "过去的保留",
+    "pastSubtitle": "上次预订您的属性",
+    "pastEmptyMessage": "过去没有保留",
+    "cancelLabel": "取消访客保留",
+    "successMessage": "预订已取消",
+    "errorMessage": "出了错。"
+  },
+  "TripsPage": {
+    "notLoggedInTitle": "找不到任何旅行",
+    "notLoggedInSubtitle": "您似乎没有登录",
+    "emptyTitle": "未找到旅行",
+    "emptySubtitle": "看起来你没有计划的旅行",
+    "title": "即将进行的旅行",
+    "subtitle": "您的去向：",
+    "emptyMessage": "您没有即将进行的旅行",
+    "pastTitle": "过去的旅行",
+    "pastSubtitle": "您曾经的位置",
+    "pastEmptyMessage": "您没有过去的旅行",
+    "cancelLabel": "取消保留",
+    "successMessage": "预订已取消",
+    "errorMessage": "出了错。"
+  },
+  "Search": {
+    "defaultLocationLabel": "任意地方",
+    "durationLabel": "{count, plural, =0 {1天} =1 {#天} other {#天}}",
+    "defaultDurationLabel": "任意周",
+    "guestLabel": "{count, plural, =0 {# 访客} =1 {# 访客} other {# 访客}}",
+    "defaultGuestLabel": "添加访客数"
+  },
+  "Menu": {
+    "guestOptionsLabel": "作为访客浏览",
+    "tripsLabel": "我的旅行",
+    "favoritesLabel": "我的收藏夹",
+    "hostOptionsLabel": "以主机浏览",
+    "propertiesLabel": "我的属性",
+    "reservationsLabel": "我的保留",
+    "listPropertyLabel": "列出您的属性",
+    "logout": "注销",
+    "login": "登录",
+    "register": "注册"
+  },
+  "Categories": {
+    "Beach": "海滩座",
+    "BeachDescription": "这个属性靠近海滩！",
+    "Windmills": "风磨机",
+    "WindmillsDescription": "此属性有风能！",
+    "Modern": "现代的",
+    "ModernDescription": "此属性是现代的 ！",
+    "Countryside": "农村地区",
+    "CountrysideDescription": "这个财产在乡村！",
+    "Pools": "资源库",
+    "PoolsDescription": "此属性有池！",
+    "Islands": "群岛",
+    "IslandsDescription": "这个房产在一个岛上！",
+    "Lake": "莱克",
+    "LakeDescription": "这个房产靠近一个湖泊！",
+    "Skiing": "滑雪",
+    "SkiingDescription": "此属性已跳过活动！",
+    "Castles": "卡斯尔斯",
+    "CastlesDescription": "这个属性在城堡里！",
+    "Camping": "露营模式",
+    "CampingDescription": "这个属性有露营活动！",
+    "Arctic": "北极地区",
+    "ArcticDescription": "这个属性有雪！",
+    "Cave": "洞穴：",
+    "CaveDescription": "此属性处于警告状态！",
+    "Desert": "Desert",
+    "DesertDescription": "这个属性在沙漠中！",
+    "Barns": "Barns",
+    "BarnsDescription": "此属性在酒吧里！",
+    "Lux": "Lux",
+    "LuxDescription": "此属性是奢侈品！"
+  },
+  "EmptyState": {
+    "defaultTitle": "没有精确匹配",
+    "defaultSubtitle": "尝试更改您的搜索或过滤器",
+    "resetButtonLabel": "移除所有过滤器"
+  },
+  "ImageUpload": {
+    "uploadPrompt": "点击上传{count, plural, =0 {} other { 更多}}"
+  },
+  "LocationSelect": {
+    "placeholderMessage": "你去哪儿了",
+    "loadingMessage": "加载中...",
+    "noOptionsMessage": "输入建议..."
+  },
+  "LoginModal": {
+    "modalLabel": "登录",
+    "successMessage": "已登录",
+    "errorMessage": "出了错。",
+    "title": "欢迎回来！",
+    "subtitle": "登录到您的帐户",
+    "googleLoginLabel": "使用Google登录",
+    "githubLoginLabel": "使用Github 登录",
+    "emailLoginLabel": "或使用电子邮件和密码",
+    "emailInputLabel": "电子邮件地址",
+    "passwordInputLabel": "密码",
+    "firstTimeUserLabel": "第一次？",
+    "registerLabel": "创建帐户",
+    "buttonLabel": "继续"
+  },
+  "RegisterModal": {
+    "modalLabel": "注册",
+    "successMessage": "注册成功",
+    "errorMessage": "出了错。",
+    "title": "欢迎使用",
+    "subtitle": "创建帐户",
+    "googleSignupLabel": "使用Google登录",
+    "githubSignupLabel": "继续使用 Github",
+    "emailSignupLabel": "或使用电子邮件和密码",
+    "nameInputLabel": "名称",
+    "emailInputLabel": "电子邮件地址",
+    "passwordInputLabel": "密码",
+    "existingUserLabel": "已经有一个帐户？",
+    "loginLabel": "登录",
+    "buttonLabel": "继续"
+  },
+  "RentModal": {
+    "modalLabel": "列出您的属性",
+    "successMessage": "属性列表成功",
+    "errorMessage": "出了错。",
+    "actionLabel": "下一个",
+    "secondaryActionLabel": "后退",
+    "finalActionLabel": "创建",
+    "categoriesStepTitle": "下列哪一个最能描述你的地点？",
+    "categoriesStepSubtitle": "选择所有应用",
+    "locationStepTitle": "您的位置在哪里？",
+    "locationStepSubtitle": "帮助访客找到你！",
+    "infoStepTitle": "分享一些关于你所在位置的基本知识",
+    "infoStepSubtitle": "你的位置是什么设施？",
+    "guestsInputTitle": "客人",
+    "guestsInputSubtitle": "您允许多少客人？",
+    "roomsInputTitle": "房间",
+    "roomsInputSubtitle": "您有多少房间？",
+    "bathroomsInputTitle": "浴室",
+    "bathroomsInputSubtitle": "您有多少浴室？",
+    "photosStepTitle": "添加几张您所在位置的照片",
+    "photosStepSubtitle": "向访客展示你的地方是什么样子！",
+    "descriptionStepTitle": "你将如何描述你的位置？",
+    "descriptionStepSubtitle": "最好的短语和甜蜜！",
+    "titleInputLabel": "标题",
+    "descriptionInputLabel": "描述",
+    "priceStepTitle": "现在设置您的价格",
+    "priceStepSubtitle": "您想为每晚收取多少费用？",
+    "priceInputLabel": "价格"
+  },
+  "SearchModal": {
+    "modalLabel": "筛选器",
+    "actionLabel": "下一个",
+    "secondaryActionLabel": "后退",
+    "finalActionLabel": "搜索",
+    "locationStepTitle": "您想要去哪儿？",
+    "locationStepSubtitle": "找到完美的位置",
+    "dateStepTitle": "您想要何时去？",
+    "dateStepSubtitle": "确保每个人都是免费的",
+    "infoStepTitle": "更多信息",
+    "infoStepSubtitle": "找到你完美的地方",
+    "guestsInputTitle": "客人",
+    "guestsInputSubtitle": "来访的客有多少？",
+    "roomsInputTitle": "房间",
+    "roomsInputSubtitle": "您需要多少房间？",
+    "bathroomsInputTitle": "浴室",
+    "bathroomsInputSubtitle": "您需要多少浴室？"
+  },
+  "ListingReservation": {
+    "successMessage": "保留列表成功",
+    "errorMessage": "出了错。",
+    "night": "晚间",
+    "reserveLabel": "储备金",
+    "total": "总计"
+  },
+  "ListingInfo": {
+    "hostedBy": "托管人",
+    "guestCount": "{count, plural, =0 {# 访客} =1 {# 访客} other {# 访客}}",
+    "roomCount": "{count, plural, =0 {# 房间} =1 {# 房间} other {# 房间}}",
+    "bathroomCount": "{count, plural, =0 {# 浴室} =1 {# 浴室} other {# 浴室}}",
+    "aboutLabel": "关于此属性",
+    "locationLabel": "您将成为哪个位置"
+  },
+  "Error": {
+    "title": "Uh oh",
+    "subtitle": "出现了一些错误！"
+  }
+}
