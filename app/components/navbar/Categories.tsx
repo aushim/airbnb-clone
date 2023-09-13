@@ -15,7 +15,6 @@ import {
 import { BsSnow } from "react-icons/bs";
 import { FaSkiing } from "react-icons/fa";
 import { MdOutlineVilla } from "react-icons/md";
-import { useTranslations } from "next-intl";
 
 import Container from "@/app/components/Container";
 import CategoryBox from "@/app/components/navbar/CategoryBox";
@@ -125,7 +124,6 @@ export const categories: Category[] = [
 ];
 
 const Categories = () => {
-  const t = useTranslations("Categories");
   const params = useSearchParams();
   const category = params?.get("category");
   const pathName = usePathname();
@@ -142,7 +140,7 @@ const Categories = () => {
         {categories.map((item) => (
           <CategoryBox
             key={item.label}
-            label={t(item.label as CategoryLabel)}
+            label={item.label}
             selected={category === item.label}
             icon={item.icon}
           />

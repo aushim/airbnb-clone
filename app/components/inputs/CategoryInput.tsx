@@ -1,6 +1,8 @@
 "use client";
 
 import { IconType } from "react-icons";
+import { useTranslations } from "next-intl";
+import { CategoryLabel } from "@/app/components/navbar/Categories";
 
 interface CategoryInputProps {
   label: string;
@@ -15,6 +17,7 @@ const CategoryInput: React.FC<CategoryInputProps> = ({
   selected,
   onClick,
 }) => {
+  const t = useTranslations("Categories");
   return (
     <div
       onClick={() => onClick(label)}
@@ -33,7 +36,7 @@ const CategoryInput: React.FC<CategoryInputProps> = ({
       `}
     >
       <Icon size={30} />
-      <div className="font-semibold">{label}</div>
+      <div className="font-semibold">{t(label as CategoryLabel)}</div>
     </div>
   );
 };

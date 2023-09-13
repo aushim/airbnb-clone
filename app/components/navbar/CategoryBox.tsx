@@ -2,9 +2,12 @@
 
 import qs from "query-string";
 import { useRouter } from "next-intl/client";
+import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
+
+import { CategoryLabel } from "@/app/components/navbar/Categories";
 
 interface CategoryBoxProps {
   icon: IconType;
@@ -18,6 +21,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   selected,
 }) => {
   const router = useRouter();
+  const t = useTranslations("Categories");
   const params = useSearchParams();
 
   const handleClick = useCallback(() => {
@@ -66,7 +70,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       `}
     >
       <Icon size={26} />
-      <div className="text-sm font-medium">{label}</div>
+      <div className="text-sm font-medium">{t(label as CategoryLabel)}</div>
     </div>
   );
 };

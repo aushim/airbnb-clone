@@ -10,10 +10,7 @@ import { useTranslations } from "next-intl";
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "@/app/components/modals/Modal";
 import Heading from "@/app/components/Heading";
-import {
-  CategoryLabel,
-  categories as allCategories,
-} from "@/app/components/navbar/Categories";
+import { categories as allCategories } from "@/app/components/navbar/Categories";
 import CategoryInput from "@/app/components/inputs/CategoryInput";
 import LocationSelect, {
   LocationSelectValue,
@@ -38,7 +35,6 @@ enum STEPS {
 const RentModal = () => {
   const router = useRouter();
   const t = useTranslations("RentModal");
-  const tCategories = useTranslations("Categories");
   const rentModal = useRentModal();
 
   const [step, setStep] = useState(STEPS.CATEGORY);
@@ -153,14 +149,14 @@ const RentModal = () => {
         title={t("categoriesStepTitle")}
         subtitle={t("categoriesStepSubtitle")}
       />
-      <div className="grid max-h-[50vh] grid-cols-3 gap-3 overflow-y-auto md:grid-cols-4">
+      <div className="grid max-h-[50vh] grid-cols-2 gap-3 overflow-y-auto">
         {allCategories.map((item) => (
           <div
             key={item.label}
             className="col-span-1"
           >
             <CategoryInput
-              label={tCategories(item.label as CategoryLabel)}
+              label={item.label}
               selected={categories.includes(item.label)}
               icon={item.icon}
               onClick={(category) =>
