@@ -7,7 +7,10 @@ import { useTranslations } from "next-intl";
 import { SerializedUser } from "@/app/types";
 import Avatar from "@/app/components/Avatar";
 import ListingCategory from "@/app/components/listings/ListingCategory";
-import { CategoryLabel } from "@/app/components/navbar/Categories";
+import {
+  CategoryDescriptionKeys,
+  CategoryLabel,
+} from "@/app/components/navbar/Categories";
 
 const Map = dynamic(() => import("@/app/components/Map"), {
   ssr: false,
@@ -66,7 +69,9 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             key={index}
             icon={category.icon}
             label={tCategories(category.label as CategoryLabel)}
-            description={tCategories((category.label + "Description") as any)}
+            description={tCategories(
+              (category.label + "Description") as CategoryDescriptionKeys,
+            )}
           />
         ))}
       <hr />

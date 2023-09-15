@@ -4,8 +4,8 @@ import { useCallback, useRef, useEffect, RefObject } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next-intl/client";
 import { usePathname } from "next-intl/client";
+import Link from "next-intl/link";
 
 import Avatar from "@/app/components/Avatar";
 import MenuItem from "@/app/components/navbar/MenuItem";
@@ -23,7 +23,6 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ currentUser }) => {
   const t = useTranslations("Menu");
-  const router = useRouter();
   const pathname = usePathname();
   const langMenu = useLangMenu();
   const userMenu = useUserMenu();
@@ -123,41 +122,55 @@ const Menu: React.FC<MenuProps> = ({ currentUser }) => {
           className="absolute end-20 top-12 w-min overflow-hidden rounded-xl bg-white text-sm shadow-md"
         >
           <div className="flex cursor-pointer flex-col">
-            <MenuItem
-              onClick={() => router.push(pathname, { locale: "en" })}
-              imageSrc="/images/flags/en.png"
-              label="English"
-            />
-            <MenuItem
-              onClick={() => router.push(pathname, { locale: "zh" })}
-              imageSrc="/images/flags/zh.png"
-              label="官话"
-            />
-            <MenuItem
-              onClick={() => router.push(pathname, { locale: "hi" })}
-              imageSrc="/images/flags/hi.png"
-              label="हिन्दी"
-            />
-            <MenuItem
-              onClick={() => router.push(pathname, { locale: "es" })}
-              imageSrc="/images/flags/es.png"
-              label="Español"
-            />
-            <MenuItem
-              onClick={() => router.push(pathname, { locale: "fr" })}
-              imageSrc="/images/flags/fr.png"
-              label="Français"
-            />
-            <MenuItem
-              onClick={() => router.push(pathname, { locale: "ar" })}
-              imageSrc="/images/flags/ar.png"
-              label="اَلْعَرَبِيَّةُ"
-            />
-            <MenuItem
-              onClick={() => router.push(pathname, { locale: "he" })}
-              imageSrc="/images/flags/he.png"
-              label="עִבְרִית"
-            />
+            <a href={`/en${pathname}`}>
+              <MenuItem
+                onClick={() => {}}
+                imageSrc="/images/flags/en.png"
+                label="English"
+              />
+            </a>
+            <a href={`/zh${pathname}`}>
+              <MenuItem
+                onClick={() => {}}
+                imageSrc="/images/flags/zh.png"
+                label="官话"
+              />
+            </a>
+            <a href={`/hi${pathname}`}>
+              <MenuItem
+                onClick={() => {}}
+                imageSrc="/images/flags/hi.png"
+                label="हिन्दी"
+              />
+            </a>
+            <a href={`/es${pathname}`}>
+              <MenuItem
+                onClick={() => {}}
+                imageSrc="/images/flags/es.png"
+                label="Español"
+              />
+            </a>
+            <a href={`/fr${pathname}`}>
+              <MenuItem
+                onClick={() => {}}
+                imageSrc="/images/flags/fr.png"
+                label="Français"
+              />
+            </a>
+            <a href={`/ar${pathname}`}>
+              <MenuItem
+                onClick={() => {}}
+                imageSrc="/images/flags/ar.png"
+                label="اَلْعَرَبِيَّةُ"
+              />
+            </a>
+            <a href={`/he${pathname}`}>
+              <MenuItem
+                onClick={() => {}}
+                imageSrc="/images/flags/he.png"
+                label="עִבְרִית"
+              />
+            </a>
           </div>
         </div>
       )}
@@ -177,26 +190,34 @@ const Menu: React.FC<MenuProps> = ({ currentUser }) => {
                 <div className="text-md cursor-default px-4 py-3 font-semibold">
                   {t("guestOptionsLabel")}
                 </div>
-                <MenuItem
-                  onClick={() => router.push("/trips")}
-                  label={t("tripsLabel")}
-                />
-                <MenuItem
-                  onClick={() => router.push("/favorites")}
-                  label={t("favoritesLabel")}
-                />
+                <Link href="/trips">
+                  <MenuItem
+                    onClick={() => {}}
+                    label={t("tripsLabel")}
+                  />
+                </Link>
+                <Link href="/favorites">
+                  <MenuItem
+                    onClick={() => {}}
+                    label={t("favoritesLabel")}
+                  />
+                </Link>
                 <hr />
                 <div className="text-md cursor-default px-4 py-3 font-semibold">
                   {t("hostOptionsLabel")}
                 </div>
-                <MenuItem
-                  onClick={() => router.push("/properties")}
-                  label={t("propertiesLabel")}
-                />
-                <MenuItem
-                  onClick={() => router.push("/reservations")}
-                  label={t("reservationsLabel")}
-                />
+                <Link href="/properties">
+                  <MenuItem
+                    onClick={() => {}}
+                    label={t("propertiesLabel")}
+                  />
+                </Link>
+                <Link href="/reservations">
+                  <MenuItem
+                    onClick={() => {}}
+                    label={t("reservationsLabel")}
+                  />
+                </Link>
                 <MenuItem
                   onClick={() => rentModal.onOpen()}
                   label={t("listPropertyLabel")}

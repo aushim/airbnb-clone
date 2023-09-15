@@ -2,7 +2,7 @@ import "@/app/[locale]/globals.css";
 
 import deepmerge from "deepmerge";
 import { Nunito } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, AbstractIntlMessages } from "next-intl";
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 
@@ -18,21 +18,21 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 const font = Nunito({ subsets: ["latin"] });
 
 const getMessages = async (locale: string) => {
-  let messages;
+  const messages: { [key: string]: AbstractIntlMessages } = {
+    default: {},
+    user: {},
+  };
   try {
-    let userMessages = {};
     try {
-      userMessages = (await import(`../../messages/${locale}.json`)).default;
+      messages.user = (await import(`../../messages/${locale}.json`)).default;
     } catch (error) {
       console.error(error);
     }
-    const defaultMessages = (await import(`../../messages/en.json`)).default;
-    messages = deepmerge(defaultMessages, userMessages);
+    messages.default = (await import(`../../messages/en.json`)).default;
+    return deepmerge(messages.default, messages.user || {});
   } catch (error) {
     notFound();
   }
-
-  return messages;
 };
 
 export async function generateMetadata({
@@ -43,7 +43,9 @@ export async function generateMetadata({
   const { locale } = params;
   const messages = await getMessages(locale);
   return {
-    title: messages?.Home?.title || "Holidy Homes & Apartment Rentals",
+    title:
+      (messages?.Home as AbstractIntlMessages)?.title ||
+      "Holiday Homes & Apartment Rentals",
   };
 }
 

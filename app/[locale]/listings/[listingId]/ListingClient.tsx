@@ -41,14 +41,14 @@ const ListingClient: React.FC<ListingClientProps> = ({
   const router = useRouter();
 
   const disabledDates = useMemo(() => {
-    let dates: Date[] = [];
+    const dates: Date[] = [];
 
     reservations.forEach((reservation) => {
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
         end: new Date(reservation.endDate),
       });
-      dates = [...dates, ...range];
+      dates.push(...range);
     });
 
     return dates;

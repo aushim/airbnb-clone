@@ -22,22 +22,26 @@ import { usePathname } from "next-intl/client";
 import { useSearchParams } from "next/navigation";
 import { IconType } from "react-icons";
 
-export type CategoryLabel =
-  | "Beach"
-  | "Windmills"
-  | "Modern"
-  | "Countryside"
-  | "Pools"
-  | "Islands"
-  | "Lake"
-  | "Skiing"
-  | "Castles"
-  | "Camping"
-  | "Arctic"
-  | "Cave"
-  | "Desert"
-  | "Barns"
-  | "Lux";
+const categoryLabels = [
+  "Beach",
+  "Windmills",
+  "Modern",
+  "Countryside",
+  "Pools",
+  "Islands",
+  "Lake",
+  "Skiing",
+  "Castles",
+  "Camping",
+  "Arctic",
+  "Cave",
+  "Desert",
+  "Barns",
+  "Lux",
+] as const;
+
+export type CategoryLabel = (typeof categoryLabels)[number];
+export type CategoryDescriptionKeys = `${CategoryLabel}Description`;
 
 export type Category = {
   label: CategoryLabel;

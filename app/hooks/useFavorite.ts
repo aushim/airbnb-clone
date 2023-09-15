@@ -31,15 +31,9 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
       }
 
       try {
-        let request;
-
-        if (hasFavorited) {
-          request = () =>
-            fetch(`/api/favorites/${listingId}`, { method: "DELETE" });
-        } else {
-          request = () =>
-            fetch(`/api/favorites/${listingId}`, { method: "POST" });
-        }
+        const request = hasFavorited
+          ? () => fetch(`/api/favorites/${listingId}`, { method: "DELETE" })
+          : () => fetch(`/api/favorites/${listingId}`, { method: "POST" });
 
         await request();
         router.refresh();

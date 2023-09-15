@@ -58,13 +58,9 @@ const SearchModal = () => {
       return onNext();
     }
 
-    let currentQuery = {};
+    const currentQuery = params ? qs.parse(params.toString()) : {};
 
-    if (params) {
-      currentQuery = qs.parse(params.toString());
-    }
-
-    const updatedQuery: any = {
+    const updatedQuery: qs.ParsedQuery<string | number | undefined> = {
       ...currentQuery,
       location: location?.label,
       guestCount,
@@ -121,23 +117,25 @@ const SearchModal = () => {
     return t("secondaryActionLabel");
   }, [step, t]);
 
-  let bodyContent = (
-    <div className="flex flex-col gap-8">
-      <Heading
-        title={t("locationStepTitle")}
-        subtitle={t("locationStepSubtitle")}
-      />
-      <LocationSelect
-        location={location}
-        onChange={(value) => setLocation(value as LocationSelectValue)}
-      />
-      <hr />
-      <Map center={location?.latlng} />
-    </div>
-  );
+  const modalContent = {
+    body: (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title={t("locationStepTitle")}
+          subtitle={t("locationStepSubtitle")}
+        />
+        <LocationSelect
+          location={location}
+          onChange={(value) => setLocation(value as LocationSelectValue)}
+        />
+        <hr />
+        <Map center={location?.latlng} />
+      </div>
+    ) as JSX.Element,
+  };
 
   if (step === STEPS.DATE) {
-    bodyContent = (
+    modalContent.body = (
       <div className="flex flex-col gap-8">
         <Heading
           title={t("dateStepTitle")}
@@ -152,7 +150,7 @@ const SearchModal = () => {
   }
 
   if (step === STEPS.INFO) {
-    bodyContent = (
+    modalContent.body = (
       <div className="flex flex-col gap-8">
         <Heading
           title={t("infoStepTitle")}
@@ -191,7 +189,7 @@ const SearchModal = () => {
       actionLabel={actionLabel}
       secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
       secondaryActionLabel={secondaryActionLabel}
-      body={bodyContent}
+      body={modalContent.body}
     />
   );
 };

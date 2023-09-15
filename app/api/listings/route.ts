@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import { ImageUploadResult } from "@/app/components/inputs/ImageUpload";
 
 export async function POST(request: Request) {
   const currentUser = await getCurrentUser();
@@ -37,7 +38,7 @@ export async function POST(request: Request) {
       locationCountry,
       locationValue,
       photos: {
-        create: photos.map((photo: any) => ({
+        create: photos.map((photo: ImageUploadResult) => ({
           url: photo.url,
           etag: photo.etag,
         })),

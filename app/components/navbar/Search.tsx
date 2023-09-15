@@ -32,7 +32,7 @@ const Search = () => {
     if (startDate && endDate) {
       const start = new Date(startDate as string);
       const end = new Date(endDate as string);
-      let diff = differenceInDays(end, start);
+      const diff = differenceInDays(end, start);
 
       return t("durationLabel", { count: diff });
     }

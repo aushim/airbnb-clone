@@ -143,39 +143,41 @@ const RentModal = () => {
     return t("secondaryActionLabel");
   }, [step, t]);
 
-  let bodyContent = (
-    <div className="flex flex-col gap-8">
-      <Heading
-        title={t("categoriesStepTitle")}
-        subtitle={t("categoriesStepSubtitle")}
-      />
-      <div className="grid max-h-[50vh] grid-cols-2 gap-3 overflow-y-auto">
-        {allCategories.map((item) => (
-          <div
-            key={item.label}
-            className="col-span-1"
-          >
-            <CategoryInput
-              label={item.label}
-              selected={categories.includes(item.label)}
-              icon={item.icon}
-              onClick={(category) =>
-                !categories.includes(category)
-                  ? setCustomValue("categories", [...categories, category])
-                  : setCustomValue(
-                      "categories",
-                      categories.filter((c: any) => c !== category),
-                    )
-              }
-            />
-          </div>
-        ))}
+  const modalContent = {
+    body: (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title={t("categoriesStepTitle")}
+          subtitle={t("categoriesStepSubtitle")}
+        />
+        <div className="grid max-h-[50vh] grid-cols-2 gap-3 overflow-y-auto">
+          {allCategories.map((item) => (
+            <div
+              key={item.label}
+              className="col-span-1"
+            >
+              <CategoryInput
+                label={item.label}
+                selected={categories.includes(item.label)}
+                icon={item.icon}
+                onClick={(category) =>
+                  !categories.includes(category)
+                    ? setCustomValue("categories", [...categories, category])
+                    : setCustomValue(
+                        "categories",
+                        categories.filter((c) => c !== category),
+                      )
+                }
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    ) as JSX.Element,
+  };
 
   if (step === STEPS.LOCATION) {
-    bodyContent = (
+    modalContent.body = (
       <div className="flex flex-col gap-8">
         <Heading
           title={t("locationStepTitle")}
@@ -205,7 +207,7 @@ const RentModal = () => {
   }
 
   if (step === STEPS.INFO) {
-    bodyContent = (
+    modalContent.body = (
       <div className="flex flex-col gap-8">
         <Heading
           title={t("infoStepTitle")}
@@ -236,7 +238,7 @@ const RentModal = () => {
   }
 
   if (step === STEPS.PHOTOS) {
-    bodyContent = (
+    modalContent.body = (
       <div className="flex flex-col gap-8">
         <Heading
           title={t("photosStepTitle")}
@@ -251,7 +253,7 @@ const RentModal = () => {
   }
 
   if (step === STEPS.DESCRIPTION) {
-    bodyContent = (
+    modalContent.body = (
       <div className="flex flex-col gap-8">
         <Heading
           title={t("descriptionStepTitle")}
@@ -279,7 +281,7 @@ const RentModal = () => {
   }
 
   if (step === STEPS.PRICE) {
-    bodyContent = (
+    modalContent.body = (
       <div className="flex flex-col gap-8">
         <Heading
           title={t("priceStepTitle")}
@@ -307,7 +309,7 @@ const RentModal = () => {
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
-      body={bodyContent}
+      body={modalContent.body}
     />
   );
 };

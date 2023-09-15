@@ -3,7 +3,7 @@
 import { useCallback, useMemo } from "react";
 import Image from "next/image";
 import { useFormatter, useTranslations } from "next-intl";
-import { useRouter } from "next-intl/client";
+import Link from "next-intl/link";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -39,7 +39,6 @@ const ListingCard: React.FC<ListingCardProps> = ({
   actionId = "",
   currentUser,
 }) => {
-  const router = useRouter();
   const formatter = useFormatter();
   const t = useTranslations("ListingReservation");
   const tCategories = useTranslations("Categories");
@@ -117,21 +116,20 @@ const ListingCard: React.FC<ListingCardProps> = ({
             ))}
           </Swiper>
         )}
-        <div
-          onClick={() => router.push(`/listings/${data.id}`)}
-          className="cursor-pointer"
-        >
-          <div className="text-md font-semibold">{location}</div>
-          <div className="text-sm font-light text-neutral-500">
-            {reservationDate ||
-              (data.categories?.length > 0 &&
-                tCategories(data.categories[0] as CategoryLabel))}
+        <Link href={`/listings/${data.id}`}>
+          <div className="cursor-pointer">
+            <div className="text-md font-semibold">{location}</div>
+            <div className="text-sm font-light text-neutral-500">
+              {reservationDate ||
+                (data.categories?.length > 0 &&
+                  tCategories(data.categories[0] as CategoryLabel))}
+            </div>
+            <div className="flex flex-row items-center gap-1 pt-2">
+              <div className="font-semibold">$ {price}</div>
+              {!reservation && <div className="font-light"> {t("night")}</div>}
+            </div>
           </div>
-          <div className="flex flex-row items-center gap-1 pt-2">
-            <div className="font-semibold">$ {price}</div>
-            {!reservation && <div className="font-light"> {t("night")}</div>}
-          </div>
-        </div>
+        </Link>
         {onAction && actionLabel && (
           <Button
             disabled={disabled}
