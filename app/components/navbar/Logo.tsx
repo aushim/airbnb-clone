@@ -13,6 +13,7 @@ const Logo = () => {
             fill
             src="/images/logo-icon.png"
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <div className="relative hidden h-10 w-32 cursor-pointer sm:block">
@@ -22,6 +23,7 @@ const Logo = () => {
             className="h-auto w-auto"
             src="/images/logo.png"
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       </Link>

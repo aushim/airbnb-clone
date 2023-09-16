@@ -33,7 +33,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ onClick, label, imageSrc }) => {
             alt={label}
             fill
             src={imageSrc}
-            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       )}
