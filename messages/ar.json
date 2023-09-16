@@ -215,6 +215,6 @@
     "subtitle": "حدث خطأ ما!"
   },
   "FavoriteButton": {
-    "errorMessage": "Something went wrong"
+    "errorMessage": "هناك خطأ ما"
   }
 }
