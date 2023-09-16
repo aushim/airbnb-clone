@@ -213,5 +213,8 @@
   "Error": {
     "title": "Uh oh",
     "subtitle": "Quelque chose s'est mal passé !"
+  },
+  "FavoriteButton": {
+    "errorMessage": "Quelque chose s'est mal passé"
   }
 }

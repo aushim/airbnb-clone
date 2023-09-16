@@ -213,5 +213,8 @@
   "Error": {
     "title": "או - או",
     "subtitle": "משהו השתבש!"
+  },
+  "FavoriteButton": {
+    "errorMessage": "משהו השתבש"
   }
 }
