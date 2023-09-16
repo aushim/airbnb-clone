@@ -215,6 +215,6 @@
     "subtitle": "משהו השתבש!"
   },
   "FavoriteButton": {
-    "errorMessage": "Something went wrong"
+    "errorMessage": "משהו השתבש"
   }
 }
